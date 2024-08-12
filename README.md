@@ -26,8 +26,8 @@ Composer is a dependency management tool for PHP, used to manage libraries and p
     composer install: Installs all the dependencies listed in the composer.json file.
     composer update: Updates the dependencies to their latest versions as specified in composer.json.
 
-Composer is used to autoload the constants file with useful code for the system. See the following below in the "composer.json" file.
+Composer is used to autoload classes by requiring the "vendor/autoload.php" file.
 
-    "files" : [
-        "helpers/constants.php"
-    ]
+    require __DIR__ ."/../vendor/autoload.php";
+
+The example code above can be seen in the "config/mail.php" file

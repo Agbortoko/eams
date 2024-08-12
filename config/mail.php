@@ -1,22 +1,22 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-// Mail Configuration Settings
+require __DIR__ ."/../vendor/autoload.php"; 
 require __DIR__ . "/settings.php";
+
+use PHPMailer\PHPMailer\PHPMailer;
 
 $mailConfig = [
     'host' => '127.0.0.1',    
     'port' => 1025,                     
-    'username' => '', 
-    'password' => '',    
-    'encryption' => '',             
+    'username' => null, 
+    'password' => null,    
+    'encryption' => null,             
     'from_email' => getConfig('admin_email'),  
     'from_name' => getConfig('site_name'),    
 ];
 
-// Function to send an email
+
 function sendMail($to, $subject, $message, $headers = '') {
-    // Fallback to PHP mail() function (less reliable, but simpler)
     if (function_exists('usePHPMailer')) {
         return usePHPMailer($to, $subject, $message, $headers);
     }
@@ -25,8 +25,6 @@ function sendMail($to, $subject, $message, $headers = '') {
 
 function usePHPMailer($to, $subject, $message, $headers) {
     global $mailConfig;
-
-    require './vendor/autoload.php';  // Include PHPMailer library
 
     $mail = new PHPMailer(true);
     $mail->isSMTP();
