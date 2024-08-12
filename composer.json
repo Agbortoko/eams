@@ -3,11 +3,7 @@
     "description": "Eschosys Internship Attendance Manangement System",
     "type": "project",
     "license": "MIT",
-    "autoload": {
-        "files" : [
-            "helpers/constants.php"
-        ]
-    },
+    "autoload": {},
     "authors": [
         {
             "name": "RabbitMaid",
@@ -17,5 +13,8 @@
     "minimum-stability": "dev",
     "require-dev": {
         "symfony/var-dumper": "7.2.x-dev"
+    },
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
     }
 }
