@@ -1,0 +1,25 @@
+{
+    "name": "flashwalker/eams",
+    "description": "Eschosys Internship Attendance Manangement System",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }, 
+
+        "files" : [
+            "helpers/constants.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "RabbitMaid",
+            "email": "therabbitmaid@proton.me"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "symfony/var-dumper": "7.2.x-dev"
+    }
+}
