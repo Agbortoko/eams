@@ -13,3 +13,21 @@ The manual tracking of student attendance during internship programs, particular
 ## Proposed Solution
 
 To address the inefficiencies and inaccuracies associated with manual attendance tracking during internships, an automated Attendance Management System will be developed. This system will streamline the process of recording, monitoring, and managing student attendance, particularly when students are organized into batches.
+
+### Project Assets and Description
+
+#### Composer
+
+Composer is a dependency management tool for PHP, used to manage libraries and packages that your PHP project depends on. Composer autoload feature can automatically load classes and other files in your PHP code.
+
+    Basic Commands:
+    composer init: Initializes a new composer.json file in your project.
+    composer require vendor/package: Adds a package to your project and installs it.
+    composer install: Installs all the dependencies listed in the composer.json file.
+    composer update: Updates the dependencies to their latest versions as specified in composer.json.
+
+Composer is used to autoload the constants file with useful code for the system. See the following below in the "composer.json" file.
+
+    "files" : [
+        "helpers/constants.php"
+    ]
