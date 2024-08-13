@@ -28,7 +28,7 @@
             </header>
 
             <section class="container mx-auto px-5 min-h-[300px] md:min-h-[500px] flex items-center justify-center ">
-                <h1 class="text-4xl md:text-6xl dark:text-white text-center font-semibold"><span class="text-[#fcb215] uppercase font-bold">Eschosys Internship</span><br>Attendance Management System</h1>
+                <h1 class="text-4xl md:text-6xl dark:text-white text-center font-semibold"><span class="text-[#fcb215] uppercase font-bold block mb-5">Eschosys Internship</span class="block">Attendance Management System<span></h1>
             </section>
 
             <div class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-14">
