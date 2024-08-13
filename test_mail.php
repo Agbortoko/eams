@@ -8,7 +8,7 @@ $message = '<p style="font-family: Arial, sans-serif;">This Message is to verify
 
 
 if (sendMail($userEmail, $subject, $message)) {
-    echo 'Verification email sent successfully!';
+    echo 'Test email sent successfully!';
 } else {
-    echo 'Failed to send verification email.';
+    echo 'Failed to send test email.';
 }
