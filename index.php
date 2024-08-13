@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= getConfig('site_name') ?> | Home</title>
+    <link rel="shortcut icon" href="<?= baseUrl("/resources/images/favicon.png") ?>" type="image/x-icon">
+    <title><?= siteName() ?> | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
