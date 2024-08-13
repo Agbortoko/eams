@@ -16,13 +16,6 @@ $mailConfig = [
 ];
 
 
-function sendMail($to, $subject, $message, $headers = '') {
-    if (function_exists('usePHPMailer')) {
-        return usePHPMailer($to, $subject, $message, $headers);
-    }
-}
-
-
 function usePHPMailer($to, $subject, $message, $headers) {
     global $mailConfig;
 

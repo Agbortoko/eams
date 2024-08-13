@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/config/mail.php';
+require_once __DIR__ . '/includes/send_mail.php';
 
 $userEmail = 'user@eschosys.com';
 $subject = 'This is an important Message';

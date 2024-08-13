@@ -3,4 +3,4 @@
 require __DIR__ .'/../config/database.php';
 
 // Establish a database connection
-$conn = dbConnect();
+$connection = dbConnect();
