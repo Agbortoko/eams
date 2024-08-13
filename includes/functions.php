@@ -19,3 +19,14 @@ if(!function_exists("baseUrl"))
         return getConfig('base_url');
     }
 }
+
+
+if(!function_exists("resourceUrl")) 
+{ 
+    function resourceUrl(string $path = null) {
+        if($path !== null) {
+            return baseUrl('resources' .  "/" . $path);
+        }
+        return baseUrl('resources');
+    }
+}
