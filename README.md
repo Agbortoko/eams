@@ -14,6 +14,10 @@ The manual tracking of student attendance during internship programs, particular
 
 To address the inefficiencies and inaccuracies associated with manual attendance tracking during internships, an automated Attendance Management System will be developed. This system will streamline the process of recording, monitoring, and managing student attendance, particularly when students are organized into batches.
 
+## ScreenShot
+
+![HomePage](/resources/images/screenshot.png "Homepage Screenshot")
+
 ### Project Assets and Description
 
 #### Composer
