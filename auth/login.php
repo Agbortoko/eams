@@ -1,18 +1,7 @@
+<?php $pageTitle = "Login"; ?>
 <?php require_once __DIR__ . '/../includes/functions.php'; ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= siteName() ?> | Dashboard</title>
-    <link rel="shortcut icon" href="<?= resourceUrl("/images/favicon.png") ?>" type="image/x-icon">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="<?= resourceUrl('css/app.css') ?>">
-</head>
-
-<body class="bg-neutral-100 overscroll-none">
+<?php require_once __DIR__ . "/../templates/header.php"; ?>
 
     <main class="py-10 px-2 min-h-screen bg-slate-100 dark:bg-gray-900 bg-pattern">
     
@@ -29,12 +18,14 @@
                  <input type="email" name="email" id="email" class="w-full border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic mb-5" placeholder="username@example.com" />
               </div>
 
-              <div class="mb-3">
+              <div class="mb-2">
                 <label for="password">Password</label>
                  <input type="password" name="password" id="password" class="w-full border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic mb-5" placeholder="Type your password" />
               </div>
 
-            
+              <div class="mb-3">
+                 <a href="<?= baseUrl('auth/forgot_password.php') ?>" class="text-center text-[#fcb215] block hover:underline">Forgot Password?</a>
+              </div>
 
               <button type="submit" class="py-3 px-2 bg-[#fcb215] hover:bg-[#d18f1c] w-full rounded-lg transition-all delay-75 ease-in-out">Login</button>
 
@@ -42,6 +33,5 @@
         </section>
 
     </main>
-</body>
 
-</html>
+<?php require_once __DIR__ . "/../templates/footer.php"; ?>
