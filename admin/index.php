@@ -12,7 +12,7 @@
 </head>
 <body class="bg-neutral-100 overscroll-none">
 
-    <nav class="w-full border dark:border-gray-800 bg-white dark:bg-gray-900 shadow fixed top-0 z-20">
+    <nav class="w-full border dark:border-gray-800 bg-white dark:bg-gray-800 shadow fixed top-0 z-20">
         <div class="mx-auto w-full py-4 px-8 flex items-center justify-between">
                 <a href="<?= baseUrl() ?>">
                     <img src="<?= resourceUrl("images/logo.png") ?>" class="w-[150px] block dark:hidden" alt="Normal Logo">
@@ -45,8 +45,14 @@
         <section class="w-full md:w-[calc(100% - 250px)] min-h-screen overflow-y-auto py-20 px-4 md:ml-[250px]">
             <div class="container mx-auto">
                
-                <div class="text-center md:text-start">
-                    <h1 class="text-4xl font-semibold mb-8"><span>Analytics</span> - <span>Dashboard</span></h1>
+                <div class="flex items-center justify-between">
+                   <div>
+                        <h1 class="text-4xl font-semibold mb-8">Analytics</h1>
+                   </div>
+
+                   <div>
+                        <a href="#" class="font-semibold text-[#fcb215] text-xl"> Home </a> / <span class="text-xl"> Analytics</span>
+                   </div>
                 </div>
 
 
