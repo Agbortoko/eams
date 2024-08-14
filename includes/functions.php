@@ -1,6 +1,8 @@
 <?php
 
-require __DIR__ .'/../config/settings.php';
+require_once __DIR__ ."/../config/settings.php";
+require_once __DIR__ . "/../config/mail.php";
+
 
 if(!function_exists("siteName")) 
 { 
@@ -83,5 +85,14 @@ if(!function_exists("vite"))
             }else {
                 return null;
             }
+    }
+}
+
+
+if(!function_exists("sendEmail")) {
+    function sendEmail($to, $subject, $message) {
+        if (function_exists('usePHPMailer')) {
+            return usePHPMailer($to, $subject, $message);
+        }
     }
 }

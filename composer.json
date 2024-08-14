@@ -4,7 +4,9 @@
     "type": "project",
     "license": "MIT",
     "autoload": {
-        "files": ["includes/functions.php"]
+        "files": [
+            "includes/functions.php"
+        ]
     },
     "authors": [
         {

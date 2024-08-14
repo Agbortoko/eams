@@ -1,24 +1,23 @@
 <?php
 
-require __DIR__ ."/../vendor/autoload.php"; 
-require __DIR__ . "/settings.php";
+require_once __DIR__ ."/../vendor/autoload.php"; 
+require_once __DIR__ . "/settings.php";
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$mailConfig = [
-    'host' => '127.0.0.1',    
-    'port' => 1025,                     
-    'username' => null, 
-    'password' => null,    
-    'encryption' => null,             
-    'from_email' => getConfig('admin_email'),  
-    'from_name' => getConfig('site_name'),    
-];
-
-
-function usePHPMailer($to, $subject, $message, $headers) {
-    global $mailConfig;
-
+function usePHPMailer($to, $subject, $message) {
+   
+    $mailConfig = [
+        'host' => '127.0.0.1',    
+        'port' => 1025,                     
+        'username' => null, 
+        'password' => null,    
+        'encryption' => null,             
+        'from_email' => getConfig('admin_email'),  
+        'from_name' => getConfig('site_name'),    
+    ];
+    
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = $mailConfig['host'];

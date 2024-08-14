@@ -1,16 +1,13 @@
 <?php
 
-$dbConfig = [
-    'host' => 'localhost',
-    'username' => 'root',     
-    'password' => '',     
-    'database' => '',   
-];
-
-
 function dbConnect()
 {
-    global $dbConfig;
+    $dbConfig = [
+        'host' => 'localhost',
+        'username' => 'root',     
+        'password' => '',     
+        'database' => '',   
+    ];    
 
     // Create a connection using MySQLi (Procedural)
     $connection = mysqli_connect(

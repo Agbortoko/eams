@@ -3,7 +3,9 @@
 <?php if (isDevelopment()): ?>
     <script type="module" src="http://localhost:8044/@vite/client"></script>
     <script type="module" src="http://localhost:8044/resources/js/app.js"></script>
-<?php else: ?>
+<?php endif ?>
+
+<?php if(isProduction()): ?>
     <link rel="stylesheet" href="<?= resourceUrl(vite('css')); ?>">
     <script type="module" src="<?= resourceUrl(vite('js')); ?>"></script>
 <?php endif; ?>
