@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "3d01e8e5eab8f45abf52bf84932cbaa63b68b145"
+                "reference": "6acfa78df613d9ef34992d418eca477b2075c396"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/3d01e8e5eab8f45abf52bf84932cbaa63b68b145",
-                "reference": "3d01e8e5eab8f45abf52bf84932cbaa63b68b145",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/6acfa78df613d9ef34992d418eca477b2075c396",
+                "reference": "6acfa78df613d9ef34992d418eca477b2075c396",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-29T13:41:38+00:00"
+            "time": "2024-08-13T08:38:49+00:00"
         }
     ],
     "packages-dev": [
@@ -177,12 +177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "c8f45bacf3c242b89dc6278b33ade7cb969f7450"
+                "reference": "122ba59267fc82caa8f1f509332d4b94a223013b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c8f45bacf3c242b89dc6278b33ade7cb969f7450",
-                "reference": "c8f45bacf3c242b89dc6278b33ade7cb969f7450",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/122ba59267fc82caa8f1f509332d4b94a223013b",
+                "reference": "122ba59267fc82caa8f1f509332d4b94a223013b",
                 "shasum": ""
             },
             "require": {
@@ -252,12 +252,13 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-12T13:59:25+00:00"
+            "time": "2024-08-13T14:29:53+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "phpmailer/phpmailer": 20,
         "symfony/var-dumper": 20
     },
     "prefer-stable": false,

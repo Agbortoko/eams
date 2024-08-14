@@ -1,0 +1,32 @@
+{
+  "name": "eams",
+  "version": "1.0.0",
+  "description": "This is a system used for the management of the attendance of internship students on a daily basis at Eschosys.",
+  "main": "index.js",
+  "dependencies": {
+    "alpinejs": "^3.14.1",
+    "vite": "^5.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agbortoko/eams.git"
+  },
+  "author": "RabbitMaid",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Agbortoko/eams/issues"
+  },
+  "homepage": "https://github.com/Agbortoko/eams#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
+    "vite-plugin-full-reload": "^1.2.0"
+  }
+}

@@ -24,7 +24,6 @@
 
                 <img class="w-[150px] mx-auto" src="<?= resourceUrl("images/Mysql_logo.png") ?>" alt="MySQL Logo" />
             </div>
-
     </main>
 
 <?php require_once __DIR__ . "/templates/footer.php"; ?>
