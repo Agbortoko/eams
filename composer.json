@@ -3,7 +3,9 @@
     "description": "Eschosys Internship Attendance Manangement System",
     "type": "project",
     "license": "MIT",
-    "autoload": {},
+    "autoload": {
+        "files": ["includes/functions.php"]
+    },
     "authors": [
         {
             "name": "RabbitMaid",
