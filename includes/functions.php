@@ -89,8 +89,8 @@ if(!function_exists("vite"))
 }
 
 
-if(!function_exists("sendEmail")) {
-    function sendEmail($to, $subject, $message) {
+if(!function_exists("sendMail")) {
+    function sendMail($to, $subject, $message) {
         if (function_exists('usePHPMailer')) {
             return usePHPMailer($to, $subject, $message);
         }
