@@ -6,6 +6,21 @@ The System is designed to streamline the process of tracking and managing the at
 
 The Eschosys Internship Attendance Management System is built with PHP as it's core language. PHP is a popular server language and is used world wide. It is well known to facilitate communciation with databases.
 
+## Setup Process
+
+After cloning this repository, you need to install the composer packages and the node packages. Run the following commands below in the terminal.
+
+    composer install
+    npm install
+
+When the first command completes, execute the other next.
+
+Before running the commands above, make sure you have composer and node installed on your computer
+
+[Click to Download and Install Composer](https://getcomposer.org/Composer-Setup.exe)
+
+[Click to Download and Install Node](https://nodejs.org/dist/v20.16.0/node-v20.16.0-x64.msi)
+
 ## Problem Statement
 
 The manual tracking of student attendance during internship programs, particularly when students are organized into multiple batches, has proven to be inefficient, error-prone, and time-consuming. This traditional approach often results in unexpected errors in attendance records, delays in reporting, and challenges in ensuring compliance with internship requirements. The Attendance Management System has become critical to improve accuracy, efficiency, and real-time monitoring of student participation.
