@@ -5,6 +5,8 @@
     -email
     -password
     -is_admin
+    -email_verified_at
+    -password_reset_token
 
 ## batch
 
@@ -19,8 +21,12 @@
     -school_of_study
     -department_of_study
     -date_of_birth
-    -batch_id
     -is_approved
+
+## student_batch
+
+    -student_id
+    -batch_id
 
 ## admin
 
