@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/functions.php'; ?>
+
 <?php if (isDevelopment()): ?>
     <script type="module" src="http://localhost:5173/@vite/client"></script>
     <script type="module" src="http://localhost:5173/resources/js/app.js"></script>

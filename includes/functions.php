@@ -71,13 +71,12 @@ if(!function_exists("vite"))
                 $manifestPath = basePath("resources/dist/.vite/manifest.json");
 
                 $manifest = json_decode(file_get_contents($manifestPath), true);
-
-                if (isset($manifest["js/app.js"])) {
+                if (isset($manifest["resources/js/app.js"])) {
                     if(strtolower($path) == "js") {
-                        return "dist/" . $manifest["js/app.js"]['file'];
+                        return "dist/" . $manifest["resources/js/app.js"]['file'];
                     }
                     elseif(strtolower($path) == "css") {
-                        return "dist/". $manifest["js/app.js"]['css'][0];
+                        return "dist/". $manifest["resources/js/app.js"]['css'][0];
                     }
                 }
 

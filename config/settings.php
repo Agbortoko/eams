@@ -5,7 +5,7 @@ $siteConfig = [
     'base_path' => dirname(__DIR__, 1),
     'base_url' => 'http://localhost/eams',     
     'admin_email' => 'info@localhost.com',
-    'app_mode' => 'development'
+    'app_mode' => 'production'
 ];
 
 if(!function_exists("getConfig"))
