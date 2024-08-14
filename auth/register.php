@@ -9,7 +9,7 @@
 
         <section class="container mx-auto flex flex-col items-center py-10 w-[1000px]">
 
-            <h1 class="text-6xl font-bold dark:text-white mb-8">Student Registration</h1>
+            <h1 class="text-4xl font-bold dark:text-white mb-8">Student Registration</h1>
 
             <form action="#" class="bg-white shadow rounded-lg w-full min-h-[800px] py-10 px-8">
 
