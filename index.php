@@ -6,7 +6,7 @@
             <?php require_once __DIR__ . "/templates/navigation.php"; ?>
 
             <section class="container mx-auto px-5 min-h-[300px] md:min-h-[500px] flex items-center justify-center ">
-                <h1 class="dark:text-white text-center font-semibold"><span class="text-[#fcb215] uppercase font-bold block mb-5 text-6xl md:text-8xl">Eschosys Internship</span><span class="block text-4xl md:text-6xl">Attendance Management System<span></h1>
+                <h1 class="dark:text-white text-center font-semibold"><span class="text-[#fcb215] uppercase font-bold block mb-5 text-6xl md:text-7xl">Eschosys Internship</span><span class="block text-4xl md:text-6xl">Attendance Management System<span></h1>
             </section>
 
             <div class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-14">

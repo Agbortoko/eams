@@ -3,7 +3,7 @@ import fullReload from 'vite-plugin-full-reload';
 
 export default defineConfig({
   plugins: [
-    fullReload(['**/*.php', '**/*.css', '**/*.js']),  // Watch for changes in PHP files
+    fullReload(['**/*.php', '**/*.css', '**/*.js']),  // Watch for changes in PHP files, CSS files and JS files
   ],
 
   build: {
