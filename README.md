@@ -16,7 +16,7 @@ To address the inefficiencies and inaccuracies associated with manual attendance
 
 ## ScreenShot
 
-![HomePage](/resources/images/screenshot.png "Homepage Screenshot")
+![HomePage](/resources/images/sc.png "Homepage Screenshot")
 
 ### Project Assets and Description
 
