@@ -12,15 +12,6 @@ export default defineConfig({
     rollupOptions: {
       input: './resources/js/app.js',
     },
-  },
-
-  server: {
-    proxy: {
-      '/eams': {
-        target: 'http://localhost',
-        changeOrigin: true
-      }
-    }
-  },
+  }
 
 });
