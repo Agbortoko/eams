@@ -1,7 +1,5 @@
 
 <?php require_once __DIR__ . '/templates/header.php' ?>
-<?php require_once basePath('middleware/check_auth_user.php'); ?>
-
 <?php require_once __DIR__ . '/templates/navigation.php' ?>
 
     <main class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">

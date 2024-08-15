@@ -8,9 +8,9 @@
 
         <section class="container mx-auto flex flex-col items-center py-10 w-[500px]">
 
-            <h1 class="text-4xl font-bold dark:text-white mb-8">Student Registration</h1>
+            <h1 class="text-4xl font-bold dark:text-white mb-8">Student Account Details</h1>
 
-            <form action="#" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
+            <form action="<?= baseUrl('auth/action/save_student_details.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
 
               
             <h3 class="text-center italic text-slate-500 mb-5">Personal Details</h3>
@@ -50,5 +50,12 @@
         </section>
 
     </main>
+
+    <?= toast('success', 'user_registered', "User Registered Successfully"); ?>
+
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
+    <?= toast('error', 'student_details_save_failed', "Student Details not Save Failed!"); ?>
+    <?= toast('error', 'emptyfield', "All fields are required!"); ?>
+    <?= toast('error', 'exceptionerror', "Unexpected Error!"); ?>
 
 <?php require_once __DIR__ . "/../templates/footer.php"; ?>

@@ -1,7 +1,4 @@
 <?php require_once __DIR__ . '/templates/header.php' ?>
-<?php require_once basePath('middleware/check_auth_user.php'); ?>
-<?php require_once basePath('middleware/check_auth_user_email_verified.php'); ?>
-
 <?php require_once __DIR__ . '/templates/navigation.php' ?>
 
     <main class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">
@@ -43,5 +40,7 @@
         </section>
 
     </main>
+
+    <?= toast('success', 'student_details_saved', "Student Details Saved Successfully"); ?>
 
 <?php require_once __DIR__ . '/templates/footer.php' ?>

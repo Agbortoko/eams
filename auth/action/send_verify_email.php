@@ -21,7 +21,7 @@ else {
             // Generate token and update email verification token field in database;
             $token = generateToken();
 
-            $query = "UPDATE users SET `email_verification_token` = '$token' WHERE id = $loggedUser";
+            $query = "UPDATE users SET `token` = '$token' WHERE id = $loggedUser";
             $result = mysqli_query($connection, $query);
 
             if($result) {

@@ -15,13 +15,13 @@ else {
       $token = $_GET['token'];
 
       // Check user with token
-      $query = "SELECT * FROM users WHERE email_verification_token = '$token'";
+      $query = "SELECT * FROM users WHERE token = '$token'";
       $result = mysqli_query($connection, $query);
 
       if(mysqli_num_rows($result) == 1) {
 
             // Set user as verified
-            $query = "UPDATE users SET `email_verified_at` = now(), `email_verification_token` = null WHERE id = $loggedUser";
+            $query = "UPDATE users SET `email_verified_at` = now(), `token` = null WHERE id = $loggedUser";
             $result = mysqli_query($connection, $query);
 
             if($result) {

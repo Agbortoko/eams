@@ -1,7 +1,7 @@
 <?php 
-require __DIR__ . '/../includes/db_connect.php';
+require_once __DIR__ . '/../includes/db_connect.php';
 
-if(isset($_SESSION['loginID'])) {
+if(isset($_SESSION['loginID']) && isset($_SESSION['role'])) {
 
     $loggedUser = $_SESSION['loginID'];
 
@@ -13,7 +13,6 @@ if(isset($_SESSION['loginID'])) {
 
         if($user['email_verified_at'] == null) {
             redirect(baseUrl("auth/email_verification.php"));
-            exit;
         }
     }
 }

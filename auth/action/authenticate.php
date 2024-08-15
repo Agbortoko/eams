@@ -49,9 +49,16 @@ else {
                             // Start the session and save some user details in the session
                             session_start();
                             $_SESSION['loginID'] = $user['id'];
+                            $_SESSION['role'] = ($user['is_admin'] == 0) ? "student" : "admin";
 
-                            redirect(baseUrl("student"), ["success" => "loginsuccess"]);
-                      
+                            // Check role and redirect to dashboard
+
+                            if($user['is_admin'] == 0) {
+                                redirect(baseUrl("student"), ["success" => "loginsuccess"]);
+                            }
+                            elseif($user['is_admin'] == 1) {
+                                redirect(baseUrl("admin"), ["success" => "loginsuccess"]);
+                            }
 
                         }
                         else {
