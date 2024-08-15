@@ -11,8 +11,8 @@ if(isset($_SESSION['loginID']) && isset($_SESSION['role'])) {
     if(mysqli_num_rows($result) == 1) {
         $user = mysqli_fetch_assoc($result);
 
-        if($user['email_verified_at'] !== null) {
-            redirect(baseUrl());
+        if($user['email_verified_at'] == null) {
+            redirect(baseUrl("auth/email_verification.php"));
         }
     }
 }

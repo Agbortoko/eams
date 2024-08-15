@@ -1,7 +1,7 @@
 <?php 
 
-require __DIR__ . '/../../vendor/autoload.php';
-require __DIR__ . '/../../includes/db_connect.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../includes/db_connect.php';
 
 // Check valid request
 if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {

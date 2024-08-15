@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once basePath('includes/email_verification_message.php');
-require __DIR__ . '/../../includes/db_connect.php';
+require_once __DIR__ . '/../../includes/db_connect.php';
 
 if(!$_GET['token']) {
     session_destroy();
