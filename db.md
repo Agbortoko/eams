@@ -16,17 +16,13 @@
 ## student
 
     -user_id
+    -batch_id
     -first_name
     -last_name
-    -school_of_study
-    -department_of_study
+    -school
+    -department
     -date_of_birth
     -is_approved
-
-## student_batch
-
-    -student_id
-    -batch_id
 
 ## admin
 
@@ -40,3 +36,8 @@
     -student_id
     -is_present
     -date
+
+## settings
+
+    -name
+    -value
