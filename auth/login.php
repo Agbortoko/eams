@@ -14,12 +14,15 @@
       
               <div class="mb-3">
                 <label for="email">Email Address</label>
-                 <input type="email" name="email" id="email" class="border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic mb-5" placeholder="username@example.com" />
+                 <input type="email" name="email" id="email" class="border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic peer" placeholder="username@example.com" />
+                 <p class="hidden peer-invalid:block text-red-600 text-sm">
+                    Please provide a valid email address.
+                  </p>
               </div>
 
               <div class="mb-2">
                 <label for="password">Password</label>
-                 <input type="password" name="password" id="password" class="border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic mb-5" placeholder="Type your password" />
+                 <input type="password" name="password" id="password" class="border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic" placeholder="Type your password" />
               </div>
 
               <div class="mb-3">
@@ -35,9 +38,11 @@
 
     <?= toast('success', 'user_registered', "User Registered Successfully"); ?>
     <?= toast('success', 'logoutsuccess', "Logout Sucessful"); ?>
+    <?= toast('success', 'passwordresetsuccess', "Password Reset Successful"); ?>
     <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('error', 'emailalreadyexist', "Email Address Already Exist!"); ?>
     <?= toast('error', 'exceptionerror', "Unexpected Error!"); ?>
+    <?= toast('error', 'unexpectederror', "Unexpected Error!"); ?>
     <?= toast('error', 'emptyfield', "All fields are required!"); ?>
     <?= toast('error', 'invalidemail', "Invalid Email Address!"); ?>
     <?= toast('error', 'invalidcredentials', "Invalid Credentials"); ?>

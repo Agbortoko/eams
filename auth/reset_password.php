@@ -10,7 +10,11 @@
 
             <h1 class="text-4xl font-bold dark:text-white mb-8">Reset Password</h1>
 
-            <form action="#" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
+            <form action="<?= baseUrl('auth/action/reset_password.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8">
+
+              <?php if(isset($_GET['token'])): ?>
+                  <input type="hidden" name="token" value="<?= $_GET['token'] ?>" />
+              <?php endif ?>
       
               <div class="mb-3">
                 <label for="email">Email Address</label>
@@ -33,5 +37,9 @@
         </section>
 
     </main>
+
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
+    <?= toast('error', 'unexpectederror', "Unexpected Error!"); ?>
+    <?= toast('error', 'confirmpassworderror', "Password does not match the Password Confirm field"); ?>
 
 <?php require_once __DIR__ . "/../templates/footer.php"; ?> 
