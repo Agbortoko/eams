@@ -14,10 +14,16 @@ if(!function_exists("siteName"))
 
 if(!function_exists("baseUrl")) 
 { 
-    function baseUrl(string $path = null) {
-        if($path !== null) {
+    function baseUrl(string $path = null, array $query = null) {
+        
+        if($path !== null && $query !== null) {
+            $build = http_build_query($query);
+            return getConfig('base_url') . "/" . $path . "?" . $build;
+        }
+        elseif($path !== null) {
             return getConfig('base_url') . "/" . $path;
         }
+
         return getConfig('base_url');
     }
 }
@@ -89,6 +95,17 @@ if(!function_exists("vite"))
 }
 
 
+if(!function_exists("redirect")) {
+    function redirect(string $to, array $query = null) {
+        if($query !== null) {
+            $httpQuery = http_build_query($query);
+            return header("Location: $to?$httpQuery");
+        }
+        return header("Location: $to");
+    }
+}
+
+
 if(!function_exists("sendMail")) {
     function sendMail($to, $subject, $message) {
         if (function_exists('usePHPMailer')) {
@@ -125,7 +142,7 @@ if(!function_exists("mailTemplate")) {
                            border-radius: 8px;
                        }
                        .header {
-                           background-color: #007bff;
+                           background-color: #fcb215;
                            color: #ffffff;
                            padding: 10px;
                            text-align: center;
@@ -145,12 +162,17 @@ if(!function_exists("mailTemplate")) {
                        }
                        .button {
                            display: inline-block;
+                           margin: 0 auto;
                            padding: 10px 20px;
                            color: #ffffff;
-                           background-color: #28a745;
+                           background-color: #fcb215;
                            text-decoration: none;
                            border-radius: 5px;
                        }
+
+                       .button:hover{
+                           background-color: #d18f1c;
+                        }
                    </style>
                </head>
                <body>
@@ -173,5 +195,44 @@ if(!function_exists("mailTemplate")) {
        
            return $template;
        }
+
+
+    if(!function_exists('toast')) {
+
+        /**
+         * Show Toastr Notifications
+         *
+         * @param string $key
+         * @param string $value
+         * @param string $message
+         * @return null|string
+         */
+        function toast(string $key, string $value, string $message) {
+
+           if(isset($_GET[$key]) && $_GET[$key] == $value){
+              $notice = <<<NOTICE
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            toastr.$key("$message");
+                        });
+                    </script>
+              NOTICE;
+
+              return $notice;
+           }
+
+           return null;
+              
+        }
+    }
+
+
+    if(!function_exists("generateToken")) {
+
+        function generateToken() {
+            return strtoupper(uniqid().time());
+        }
+
+    }
        
 }

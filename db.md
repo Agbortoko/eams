@@ -36,6 +36,7 @@
 
 ## attendance
 
+    -admin_id (The marker)
     -student_id
     -is_present
     -date

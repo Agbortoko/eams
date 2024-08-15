@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "alpinejs": "^3.14.1",
+    "toastr": "^2.1.4",
     "vite": "^5.4.0"
   },
   "scripts": {

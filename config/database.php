@@ -6,7 +6,7 @@ function dbConnect()
         'host' => 'localhost',
         'username' => 'root',     
         'password' => '',     
-        'database' => '',   
+        'database' => 'eams',   
     ];    
 
     // Create a connection using MySQLi (Procedural)

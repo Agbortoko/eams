@@ -1,6 +1,6 @@
-
 <?php require_once __DIR__ . '/templates/header.php' ?>
 <?php require_once basePath('middleware/check_auth_user.php'); ?>
+<?php require_once basePath('middleware/check_auth_user_email_verified.php'); ?>
 
 <?php require_once __DIR__ . '/templates/navigation.php' ?>
 

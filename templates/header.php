@@ -1,5 +1,5 @@
-<?php require_once __DIR__ . '/../includes/functions.php'; ?>
-
+<?php session_start() ?>
+<?php require_once __DIR__ . '/../vendor/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
