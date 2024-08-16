@@ -1,5 +1,6 @@
 <?php session_start() ?>
 <?php require_once __DIR__ . '/../../vendor/autoload.php'; ?>
+<?php require_once basePath('includes/db_connect.php'); ?>
 <?php require_once basePath('middleware/check_auth_user.php'); ?>
 <?php require_once basePath('middleware/check_auth_user_email_not_verified.php'); ?>
 <?php require_once basePath('middleware/check_admin_no_details.php'); ?>

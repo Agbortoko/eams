@@ -11,11 +11,11 @@
                
                 <div class="flex items-center justify-between">
                    <div>
-                        <h1 class="text-4xl font-semibold mb-8">Batches</h1>
+                        <h1 class="text-4xl font-semibold mb-8">Mark Students Attendance</h1>
                    </div>
 
                    <div>
-                        <a href="<?= baseUrl('admin') ?>" class="font-semibold text-[#fcb215] text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Batches</span>
+                        <a href="<?= baseUrl('admin') ?>" class="font-semibold text-[#fcb215] text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Mark Students Attendance</span>
                    </div>
                 </div>
 
