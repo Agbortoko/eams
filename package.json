@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "alpinejs": "^3.14.1",
+    "datatables.net-dt": "^2.1.4",
     "toastr": "^2.1.4",
     "vite": "^5.4.0"
   },
