@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../includes/db_connect.php';
 
 // Check valid request
 if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
-    redirect(baseUrl("auth/register.php"), ["error" => "invalidrequest"]);
+    redirect(baseUrl("auth/student_details.php"), ["error" => "invalidrequest"]);
 }
 else {
 

@@ -8,7 +8,7 @@
 
             <h1 class="text-4xl font-bold dark:text-white mb-8">Admin Registration</h1>
 
-            <form action="<?= baseUrl('admin/action/create_admin.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8" autocomplete="off">
+            <form action="<?= baseUrl('action/register_admin.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8" autocomplete="off">
 
 
               <h3 class="text-center italic text-slate-500">Authentication Details</h3>
@@ -48,4 +48,4 @@
     <?= toast('error', 'invalidemail', "Invalid Email Address!"); ?>
     <?= toast('error', 'confirmpassworderror', "Password does not match the Password Confirm field"); ?>
 
-<?php require_once __DIR__ . "/../templates/footer.php"; ?>
+    <?php require_once __DIR__ . "/../templates/footer.php"; ?>

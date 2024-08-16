@@ -12,6 +12,7 @@ else {
 
       // Get logged user from the session
       $loggedUser = $_SESSION['loginID'];
+      $loggedUserRole = $_SESSION['role'];
       $token = $_GET['token'];
 
       // Check user with token
@@ -25,7 +26,17 @@ else {
             $result = mysqli_query($connection, $query);
 
             if($result) {
-                redirect(baseUrl("student/index.php"), ["success" => "emailverificationsuccess"]);
+
+                // check if user is admin or student
+
+                if($loggedUserRole == "student") {
+                    redirect(baseUrl("student/index.php"), ["success" => "emailverificationsuccess"]);
+                }
+                elseif($loggedUserRole == "admin") {
+
+                    redirect(baseUrl("admin/index.php"), ["success" => "emailverificationsuccess"]);
+                }
+
             }
             else {
                 redirect(baseUrl("auth/email_verification.php"), ["error" => "emailverificationfailed"]);

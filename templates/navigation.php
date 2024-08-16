@@ -15,7 +15,15 @@
             <?php endif ?>
 
             <?php if(isset($_SESSION['loginID'])): ?>
-                <a href="<?= baseUrl('student') ?>" class="dark:text-white text-lg md:text-xl block py-2 px-3 hover:text-primary transition-all ease-in-out delay-75">Dashboard</a>
+
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] == "admin"): ?>
+                      <a href="<?= baseUrl('admin') ?>" class="dark:text-white text-lg md:text-xl block py-2 px-3 hover:text-primary transition-all ease-in-out delay-75">Dashboard</a>
+                <?php endif ?>
+
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] == "student"): ?>
+                      <a href="<?= baseUrl('student') ?>" class="dark:text-white text-lg md:text-xl block py-2 px-3 hover:text-primary transition-all ease-in-out delay-75">Dashboard</a>
+                <?php endif ?>
+
                 <form action="<?= baseUrl('auth/action/logout.php') ?>" method="POST">
                     <button class="dark:text-white text-lg md:text-xl bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 text-white rounded-lg py-2 px-3 block">Logout</button>
                 </form>

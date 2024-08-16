@@ -4,7 +4,7 @@ require_once basePath('includes/db_connect.php');
 
 // Check valid request
 if(strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
-    redirect(baseUrl("admin/register.php"), ["error" => "invalidrequest"]);
+    redirect(baseUrl("auth/register_admin.php"), ["error" => "invalidrequest"]);
 }
 else {
 
@@ -15,20 +15,20 @@ else {
     
      // Check for empty fields
      if(empty($email) || empty($password)) {
-        redirect(baseUrl("admin/register.php"), ["error" => "emptyfield"]);
+        redirect(baseUrl("auth/register_admin.php"), ["error" => "emptyfield"]);
      }
      else {
 
         // Password Confirmation
 
         if($password !== $passwordConfirmation) {
-            redirect(baseUrl("admin/register.php"), ["error" => "confirmpassworderror"]);
+            redirect(baseUrl("auth/register_admin.php"), ["error" => "confirmpassworderror"]);
         }
         else {
 
             // Validate email
             if(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-                redirect(baseUrl("admin/register.php"), ["error" => "invalidemail"]);
+                redirect(baseUrl("auth/register_admin.php"), ["error" => "invalidemail"]);
             }
             else {
     
@@ -49,17 +49,17 @@ else {
                         if($result) {
                             redirect(baseUrl("auth/login.php"), ["success" => "user_registered"]);
                         }else {
-                            redirect(baseUrl("admin/register.php"), ["error" => "user_not_registered"]);
+                            redirect(baseUrl("auth/register_admin.php"), ["error" => "user_not_registered"]);
                         }
                     
                 } catch (\Exception $e) {
     
                     // Duplicate email entry
                     if($e->getCode() == 1062) {
-                        redirect(baseUrl("admin/register.php"), ["error" => "emailalreadyexist"]);
+                        redirect(baseUrl("auth/register_admin.php"), ["error" => "emailalreadyexist"]);
                     }
                     else {
-                        redirect(baseUrl("admin/register.php"), ["error" => "exceptionerror"]);
+                        redirect(baseUrl("auth/register_admin.php"), ["error" => "exceptionerror"]);
                     }
     
                     //dump($e->getMessage());
