@@ -30,7 +30,7 @@ else {
 
                     // Send email verification mail
                     $email = $user['email'];
-                    $subject = 'Verify your email address';
+                    $subject = 'Reset your forgotten Password';
                     $title = "Password Reset";
                     $greeting = "Hello User";
                     $link = baseUrl('auth/reset_password.php', ["token" => $token]);

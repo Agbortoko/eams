@@ -43,5 +43,6 @@
     </main>
 
     <?= toast('success', 'admin_details_saved', "Administrators Details Saved Successfully"); ?>
+    <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
 
 <?php require_once __DIR__ . '/templates/footer.php' ?>
