@@ -1,4 +1,4 @@
-<nav class="w-full border dark:border-gray-800 bg-white dark:bg-gray-800 shadow fixed top-0 z-20">
+<nav class="w-full border dark:border-gray-800 bg-white dark:bg-gray-900 shadow fixed top-0 z-20">
         <div class="mx-auto w-full py-4 px-8 flex items-center justify-between">
                 <a href="<?= baseUrl() ?>">
                     <img src="<?= resourceUrl("images/logo.png") ?>" class="w-[150px] block dark:hidden" alt="Normal Logo">
