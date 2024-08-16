@@ -9,6 +9,6 @@
 @layer {
 
     .sidebar_item-active {
-        @apply bg-gray-700;
+        @apply bg-neutral-200 dark:bg-gray-700;
     }
 }

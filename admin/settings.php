@@ -15,7 +15,7 @@
                    </div>
 
                    <div>
-                        <a href="#" class="font-semibold text-[#fcb215] text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Settings</span>
+                        <a href="<?= baseUrl('admin') ?>" class="font-semibold text-[#fcb215] text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Settings</span>
                    </div>
                 </div>
 
