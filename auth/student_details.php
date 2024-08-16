@@ -2,6 +2,7 @@
 <?php require_once __DIR__ . "/../templates/header.php"; ?>
 <?php require_once basePath('middleware/check_auth_user.php'); ?>
 <?php require_once basePath('middleware/check_is_student.php'); ?>
+<?php require_once basePath('middleware/check_student_with_details.php'); ?> 
 
     <main class="py-10 px-2 min-h-screen bg-slate-100 dark:bg-gray-900 bg-pattern">
     

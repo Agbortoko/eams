@@ -1,7 +1,8 @@
 <?php $pageTitle = "Admin Details"; ?>
-<?php require_once __DIR__ . '/../middleware/check_admin_register_disabled.php'; ?>
 <?php require_once __DIR__ . "/../templates/header.php"; ?>
+<?php require_once basePath('middleware/check_admin_register_disabled.php'); ?>
 <?php require_once basePath('middleware/check_is_admin.php'); ?>
+<?php require_once basePath('middleware/check_admin_with_details.php'); ?>
 
     <main class="py-10 px-2 min-h-screen bg-slate-100 dark:bg-gray-900 bg-pattern">
 

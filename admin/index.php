@@ -42,4 +42,6 @@
 
     </main>
 
+    <?= toast('success', 'admin_details_saved', "Administrators Details Saved Successfully"); ?>
+
 <?php require_once __DIR__ . '/templates/footer.php' ?>

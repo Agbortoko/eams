@@ -2,7 +2,7 @@
 <?php require_once __DIR__ . '/../../vendor/autoload.php'; ?>
 <?php require_once basePath('middleware/check_auth_user.php'); ?>
 <?php require_once basePath('middleware/check_auth_user_email_not_verified.php'); ?>
-<?php require_once basePath('middleware/check_student_details.php'); ?>
+<?php require_once basePath('middleware/check_student_no_details.php'); ?>
 <?php require_once basePath('middleware/check_is_student.php'); ?>
 
 <!DOCTYPE html>
