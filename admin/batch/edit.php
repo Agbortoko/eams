@@ -68,8 +68,8 @@
 
     </main>
 
-    <?= toast('error', 'batch_not_created', "Batch not created successfully"); ?>
-    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
+    <?= toast('success', 'batch_updated', "Batch updated successfully"); ?>
+    <?= toast('error', 'batch_not_updated', "Batch not updated successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
     <?= toast('error', 'exceptionerror', "Unexpected Error! Please try again"); ?>
 
