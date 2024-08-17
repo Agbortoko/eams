@@ -28,7 +28,7 @@
                 <div class="flex items-center justify-between mb-8">
                     <div class="flex items-center gap-4">
                         <h1 class="text-4xl font-semibold">Approve Student</h1>
-                        <a href="<?= baseUrl('admin/approve.php') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-3 px-2 w-fit rounded-lg text-xl text-white">Students Pending Approval</a>
+                        <a href="<?= baseUrl('admin/approve.php') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-2 px-3 w-fit rounded-lg text-xl text-white">Students Pending Approval</a>
                    </div>
 
                    <div>
@@ -49,8 +49,9 @@
                                     <label for="studentBatch" class="block mb-3">Assign Student to A batch</label>
                           
                                     <select name="batch" id="studentBatch" class="bg-white border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic">
+                                        <option disabled selected>Select a Batch</option>
                                         <?php if(count($batches) > 0 && isset($batches)): ?>
-
+                                              
                                               <?php foreach($batches as $batch): ?>
 
                                                 <option value="<?= $batch['id'] ?>"><?= strtoupper($batch['title']) ?></option>

@@ -18,7 +18,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
             <div class="flex items-center justify-between mb-8">
                 <div class="flex items-center gap-4">
                     <h1 class="text-4xl font-semibold">Batches</h1>
-                    <a href="<?= baseUrl('admin/batch/add.php') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-3 px-2 w-fit rounded-lg text-xl text-white">Add New Batch</a>
+                    <a href="<?= baseUrl('admin/batch/add.php') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-2 px-3 w-fit rounded-lg text-xl text-white">Add New Batch</a>
                 </div>
 
                 <div>
@@ -102,7 +102,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
     </section>
 
 
-    <div x-show="deleteModalOpen" x-transition class="overlay fixed top-0 bottom-0 left-0 w-full h-full bg-black bg-opacity-5 backdrop-blur z-[80] flex items-center justify-center">
+    <div x-show="deleteModalOpen" x-transition class="fixed top-0 bottom-0 left-0 w-full h-full bg-black bg-opacity-5 backdrop-blur z-[80] flex items-center justify-center" style="display: none;">
 
         <div class="w-[500px] mx-auto rounded-lg min-h-[200px] bg-white relative py-5 px-8">
             <button @click="deleteModalOpen = false" class="absolute right-3 top-3"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-10" viewBox="0 0 16 16">

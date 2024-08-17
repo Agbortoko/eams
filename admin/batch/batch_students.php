@@ -31,7 +31,7 @@
                 <div class="flex items-center justify-between mb-8">
                     <div class="flex items-center gap-4">
                         <h1 class="text-4xl font-semibold">Students in <?= strtoupper($batch['title']) ?></h1>
-                        <a href="<?= baseUrl('admin/batch/') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-3 px-2 w-fit rounded-lg text-xl text-white">Back to All Batches</a>
+                        <a href="<?= baseUrl('admin/batch/') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-2 px-3 w-fit rounded-lg text-xl text-white">Back to All Batches</a>
                     </div>
                 
                    <div>
