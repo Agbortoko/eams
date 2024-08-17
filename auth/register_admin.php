@@ -8,7 +8,7 @@
 
             <h1 class="text-4xl font-bold dark:text-white mb-8">Admin Registration</h1>
 
-            <form action="<?= baseUrl('action/register_admin.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8" autocomplete="off">
+            <form action="<?= baseUrl('auth/action/register_admin.php') ?>" method="POST" class="bg-white shadow rounded-lg w-full min-h-fit py-10 px-8" autocomplete="off">
 
 
               <h3 class="text-center italic text-slate-500">Authentication Details</h3>

@@ -51,7 +51,7 @@
 
                             <div class="flex flex-col items-center justify-center">
                                 <p class="text-xl font-semibold">Total Students</p>
-                                <p class="text-7xl font-semibold"><?= ($totalStudents > 0) ? $totalStudents : 0 ?></p>
+                                <p class="text-6xl font-semibold"><?= ($totalStudents > 0) ? $totalStudents : 0 ?></p>
                             </div>
  
                     </div>
@@ -65,7 +65,7 @@
 
                             <div class="flex flex-col items-center justify-center">
                                 <p class="text-xl font-semibold">Total Batches</p>
-                                <p class="text-7xl font-semibold"><?= ($totalBatches > 0) ? $totalBatches : 0 ?></p>
+                                <p class="text-6xl font-semibold"><?= ($totalBatches > 0) ? $totalBatches : 0 ?></p>
                             </div>
  
                     </div>
@@ -79,7 +79,7 @@
 
                             <div class="flex flex-col items-center justify-center">
                                 <p class="text-xl font-semibold">Total Admins</p>
-                                <p class="text-7xl font-semibold"><?= ($totalAdmins > 0) ? $totalAdmins : 0 ?></p>
+                                <p class="text-6xl font-semibold"><?= ($totalAdmins > 0) ? $totalAdmins : 0 ?></p>
                             </div>
  
                     </div>
@@ -89,7 +89,7 @@
 
             
 
-                <div class="w-full min-h-[500px]  border-b-4 border-b-primary bg-white shadow rounded-lg py-8 px-8">
+                <div class="w-full min-h-[500px] border-b-4 border-b-primary bg-white shadow rounded-lg py-8 px-8">
                     
                     <div class="flex items-center gap-4 mb-8">
                         <h2 class="text-3xl font-semibold">Recently Registered Students</h2>

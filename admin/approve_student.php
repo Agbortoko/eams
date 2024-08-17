@@ -37,7 +37,7 @@
                 </div>
 
 
-                <div class="grid grid-cols-1 gap-8 mb-8">
+                <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
 
                     <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 

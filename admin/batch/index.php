@@ -27,7 +27,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
             </div>
 
 
-            <div class="grid grid-cols-1 gap-8 mb-8">
+            <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
@@ -102,7 +102,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
     </section>
 
 
-    <div x-show="deleteModalOpen" x-transition class="overlay fixed top-0 bottom-0 left-0 w-full h-full bg-black bg-opacity-20 z-[80] flex items-center justify-center">
+    <div x-show="deleteModalOpen" x-transition class="overlay fixed top-0 bottom-0 left-0 w-full h-full bg-black bg-opacity-5 backdrop-blur z-[80] flex items-center justify-center">
 
         <div class="w-[500px] mx-auto rounded-lg min-h-[200px] bg-white relative py-5 px-8">
             <button @click="deleteModalOpen = false" class="absolute right-3 top-3"> <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-10" viewBox="0 0 16 16">
@@ -124,10 +124,10 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
 
             </div>
 
-            <div class="w-full flex items-center justify-between gap-2">
+            <div class="w-full flex items-center justify-end gap-2">
                 <button @click="deleteModalOpen=false" class="rounded-lg py-2 px-3 w-fit bg-gray-600 text-white hover:bg-gray-700 block">Cancel</button>
 
-                <form action="<?= baseUrl('admin/action/delete_batch.php') ?>" class="block" method="POST">
+                <form action="<?= baseUrl('admin/action/delete_batch.php') ?>" class="block w-fit" method="POST">
                     <input type="hidden" name="id" :value="batchID" />
                     <button class="rounded-lg py-2 px-3 w-fit bg-red-600 text-white hover:bg-red-700" type="submit">Delete</button>
                 </form>
