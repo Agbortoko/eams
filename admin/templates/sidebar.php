@@ -32,7 +32,7 @@
         </a>
     </li>
 
-    <li class="group rounded-lg group-[.active] mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/approve.php") ? "sidebar_item-active" : "" ?>">
+    <li class="group rounded-lg group-[.active] mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/approve.php") || strpos($hayStack, "admin/approve_student.php") ? "sidebar_item-active" : "" ?>">
         <a href="<?= baseUrl('admin/approve.php') ?>" class="flex items-center gap-3 text-white text-2xl py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 group-[.active] fill-black dark:fill-white" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>

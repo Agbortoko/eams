@@ -13,40 +13,48 @@ else {
      $id = $_POST['id'];
      $title = $_POST['title'];
      $description = $_POST['description'];
-    
-     // Check for empty fields
-     if(empty($title) || empty($description) || empty($id)) {
-        redirect(baseUrl("admin/batch/edit.php"), ["error" => "emptyfield", "batch_id" => $id]);
+
+     // Invalid request if the id is not submitted
+     if(empty($id)) {
+        redirect(baseUrl("admin/batch/index.php"), ["error" => "invalidrequest"]);
      }
-     else {
+    else {
 
-            // Escape all special characters
-            $title = mysqli_real_escape_string($connection, $title);
-            $description = mysqli_real_escape_string($connection, $description);
-        
-
-            
-            // Catch exceptions
-            try {
-
-                // Update Batch
-                $query = "UPDATE batches SET title = '$title', description = '$description' WHERE id = $id";
-                $result = mysqli_query($connection, $query);
-        
-                if($result) {
-                    redirect(baseUrl("admin/batch/edit.php"), ["success" => "batch_updated", "batch_id" => $id]);
-                }else {
-                    redirect(baseUrl("admin/batch/edit.php"), ["error" => "batch_not_updated", "batch_id" => $id]);
-                }
-
-                
-            } catch (\Exception $e) {
-
-                redirect(baseUrl("admin/batch/edit.php"), ["error" => "exceptionerror", "batch_id" => $id]);
-              
-            }
+        // Check for empty fields
+        if(empty($title) || empty($description)) {
+           redirect(baseUrl("admin/batch/edit.php"), ["error" => "emptyfield", "batch_id" => $id]);
+        }
+        else {
    
- 
-     }
+               // Escape all special characters
+               $title = mysqli_real_escape_string($connection, $title);
+               $description = mysqli_real_escape_string($connection, $description);
+           
+   
+               
+               // Catch exceptions
+               try {
+   
+                   // Update Batch
+                   $query = "UPDATE batches SET title = '$title', description = '$description' WHERE id = $id";
+                   $result = mysqli_query($connection, $query);
+           
+                   if($result) {
+                       redirect(baseUrl("admin/batch/edit.php"), ["success" => "batch_updated", "batch_id" => $id]);
+                   }else {
+                       redirect(baseUrl("admin/batch/edit.php"), ["error" => "batch_not_updated", "batch_id" => $id]);
+                   }
+   
+                   
+               } catch (\Exception $e) {
+   
+                   redirect(baseUrl("admin/batch/edit.php"), ["error" => "exceptionerror", "batch_id" => $id]);
+                 
+               }
+      
+    
+        }
+
+    }
 
 }
