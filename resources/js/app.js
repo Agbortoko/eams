@@ -1,3 +1,4 @@
 import "../css/app.css";
-import "./toastr";
-import "./datatables";
+import "./toastr.js";
+import "./datatables.js";
+import "./alpine.js";
