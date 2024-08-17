@@ -18,7 +18,7 @@
 
             <div class="flex items-center justify-between">
                 <div>
-                    <h1 class="text-4xl font-semibold mb-8">Students</h1>
+                    <h1 class="text-4xl font-semibold mb-8">All Students</h1>
                 </div>
 
                 <div>
@@ -31,12 +31,13 @@
 
                 <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
-                    <table id="dTable" class="display" style="width:100%">
+                    <table id="dTable" class="display dTable" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
+                                <th>Status</th>
                                 <th>Date Of Birth</th>
                             </tr>
                         </thead>
@@ -50,6 +51,13 @@
                                     <td><?= $student["first_name"] . " " . $student['last_name'] ?></td>
                                     <td><?= $student['department'] ?></td>
                                     <td><?= $student['school'] ?></td>
+                                    <td>
+                                        <?php if($student['is_approved'] == 1): ?>
+                                             <span class="rounded-lg py-2 px-3 text-green-600 bg-green-100">Approved</span>
+                                        <?php elseif($student['is_approved'] == 0): ?>
+                                            <span class="rounded-lg py-2 px-3 text-red-600 bg-red-100">Not Approved</span>
+                                        <?php endif?>
+                                    </td>
                                     <td><?= $student['date_of_birth'] ?></td>
                                 </tr>
 
@@ -63,6 +71,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
+                                <th>Status</th>
                                 <th>Date Of Birth</th>
                             </tr>
                         </tfoot>

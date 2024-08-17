@@ -1,5 +1,13 @@
 
 <?php require_once __DIR__ . '/templates/header.php' ?>
+
+<?php
+    $query = "SELECT * FROM students WHERE is_approved = 0";
+    $result = mysqli_query($connection, $query);
+    $students = mysqli_fetch_all($result, MYSQLI_ASSOC);;
+?>
+
+
 <?php require_once __DIR__ . '/templates/navigation.php' ?>
 
     <main class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">
@@ -24,7 +32,60 @@
 
                     <div class="min-h-[500px] p-10 bg-white shadow rounded-lg">
 
+                    <table id="dTable" class="dTable display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Full Names</th>
+                                <th>Department</th>
+                                <th>School</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                           <?php if(isset($students) && count($students) > 0): ?>
+
+                            <?php foreach($students as $student): ?>
+                                
+                                <tr>
+                                    <td><?= $student["first_name"] . " " . $student['last_name'] ?></td>
+                                    <td><?= $student['department'] ?></td>
+                                    <td><?= $student['school'] ?></td>
+                                    <td>
+                                        <?php if($student['is_approved'] == 1): ?>
+                                             <span class="rounded-lg py-2 px-3 text-green-600 bg-green-100">Approved</span>
+                                        <?php elseif($student['is_approved'] == 0): ?>
+                                            <span class="rounded-lg py-2 px-3 text-red-600 bg-red-100">Not Approved</span>
+                                        <?php endif?>
+                                    </td>
+                                    <td>
+                                        <?php if($student['is_approved'] == 0): ?>
+                                            <a href="#" class="bg-green-600 hover:bg-green-700 py-3 px-5 rounded-lg text-white my-3 block w-fit mx-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                    <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                                                </svg>
+                                            </a>
+                                        <?php endif ?>
+                                    </td>
+                                </tr>
+
+                            <?php endforeach ?>
+
+                          <?php endif ?>
                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Full Names</th>
+                                <th>Department</th>
+                                <th>School</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
 
                     </div>
 

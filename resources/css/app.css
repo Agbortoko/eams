@@ -11,4 +11,12 @@
     .sidebar_item-active {
         @apply bg-neutral-200 dark:bg-gray-700;
     }
+
+    #dTable th, tr, td {
+        @apply text-center !important;
+    }
+
+    .dTable td {
+        @apply py-5 !important;
+    }
 }

@@ -62,10 +62,10 @@
                                 <div class="mb-3">
                                     <label for="appMode">App Mode</label>
                                     <select name="appMode" id="appMode" class="bg-white border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic">
-                                        <?php if(getConfig('appMode') == "production"): ?>
+                                        <?php if(getConfig('app_mode') == "production"): ?>
                                                 <option value="production" selected>Production</option>
                                                 <option value="development">Development</option>  
-                                        <?php else: ?>
+                                        <?php elseif(getConfig('app_mode') == "development"): ?>
                                                 <option value="production">Production</option>
                                                 <option value="development" selected>Development</option>    
                                         <?php endif ?>
