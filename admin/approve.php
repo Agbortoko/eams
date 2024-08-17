@@ -30,7 +30,7 @@
 
                 <div class="grid grid-cols-1 gap-8 mb-8">
 
-                    <div class="min-h-[500px] p-10 bg-white shadow rounded-lg">
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
                     <table id="dTable" class="dTable display" style="width:100%">
                         <thead>
