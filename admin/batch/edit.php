@@ -1,5 +1,20 @@
 
 <?php require_once __DIR__ . '/../templates/header.php' ?>
+
+<?php if(!isset($_GET['batch_id'])): ?>
+    <?php http_response_code(404); ?>
+<?php else: ?>
+
+<?php 
+    $batch = [];
+    $id = $_GET['batch_id'];
+    $query = "SELECT * FROM batches WHERE id = $id";
+    $result = mysqli_query($connection, $query);
+    if(mysqli_num_rows($result) == 1) {
+        $batch = mysqli_fetch_assoc($result);
+    }
+?>
+
 <?php require_once __DIR__ . '/../templates/navigation.php' ?>
 
     <main class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">
@@ -11,12 +26,12 @@
                
                 <div class="flex items-center justify-between mb-8">
                  <div class="flex items-center gap-4">
-                        <h1 class="text-4xl font-semibold">Create New Batch</h1>
+                        <h1 class="text-4xl font-semibold">Modify Batch</h1>
                         <a href="<?= baseUrl('admin/batch') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-3 px-2 w-fit rounded-lg text-xl text-white">Back to All Batches</a>
                    </div>
 
                    <div>
-                        <a href="<?= baseUrl('admin') ?>" class="font-semibold text-primary text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Add Batch</span>
+                        <a href="<?= baseUrl('admin') ?>" class="font-semibold text-primary text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Modify Batch</span>
                    </div>
                 </div>
 
@@ -25,19 +40,20 @@
 
                     <div class="min-h-[500px] p-10 bg-white shadow rounded-lg">
 
-                    <form action="<?= baseUrl('admin/action/save_batch.php') ?>" method="POST" autocomplete="off">
+                    <form action="<?= baseUrl('admin/action/update_batch.php') ?>" method="POST" autocomplete="off">
 
+                            <input type="hidden" name="id" value="<?= $batch['id'] ?>">
                             <div class="mb-3">
                                 <label for="title" class="block mb-3">Batch Title</label>
-                                <input type="text" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" />
+                                <input type="text" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" value="<?= $batch['title'] ?>" />
                             </div>
 
                             <div class="mb-3">
                                 <label for="description" class="block mb-2">Description</label>
-                               <textarea name="description" class="w-full border border-slate-300 resize-none min-h-[300px] px-3 py-2 placeholder:italic" id="description" placeholder="Type the batch description"></textarea>
+                               <textarea name="description" class="w-full border border-slate-300 resize-none min-h-[300px] px-3 py-2 placeholder:italic" id="description" placeholder="Type the batch description"><?= $batch['description'] ?></textarea>
                             </div>
 
-                            <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Create Batch</button>
+                            <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update Batch</button>
 
                     </form>
 
@@ -58,3 +74,6 @@
     <?= toast('error', 'exceptionerror', "Unexpected Error! Please try again"); ?>
 
 <?php require_once __DIR__ . '/../templates/footer.php' ?>
+
+
+<?php endif ?>

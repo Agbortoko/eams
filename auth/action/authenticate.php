@@ -25,8 +25,6 @@ else {
         }
         else {
 
-            // Hash user password
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             // Escape all special characters
             $escapedEmail = mysqli_real_escape_string($connection, $email);
             

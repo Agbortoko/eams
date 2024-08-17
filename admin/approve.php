@@ -38,7 +38,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Status</th>
+                                <th>Approved</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -54,14 +54,14 @@
                                     <td><?= $student['school'] ?></td>
                                     <td>
                                         <?php if($student['is_approved'] == 1): ?>
-                                             <span class="rounded-lg py-2 px-3 text-green-600 bg-green-100">Approved</span>
+                                             <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100">Yes</span>
                                         <?php elseif($student['is_approved'] == 0): ?>
-                                            <span class="rounded-lg py-2 px-3 text-red-600 bg-red-100">Not Approved</span>
+                                            <span class="rounded-lg text-sm py-2 px-3 text-red-600 bg-red-100">No</span>
                                         <?php endif?>
                                     </td>
                                     <td>
                                         <?php if($student['is_approved'] == 0): ?>
-                                            <a href="#" class="btn btn-success py-2 px-3 rounded-lg text-white my-3 block w-fit mx-auto">
+                                            <a href="#" class="btn btn-green py-2 px-3 rounded-lg text-white my-3 block w-fit mx-auto">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
                                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                                                     <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
@@ -81,7 +81,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Status</th>
+                                <th>Approved</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>

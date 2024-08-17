@@ -37,7 +37,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Status</th>
+                                <th>Approved</th>
                                 <th>Date Of Birth</th>
                             </tr>
                         </thead>
@@ -53,9 +53,9 @@
                                     <td><?= $student['school'] ?></td>
                                     <td>
                                         <?php if($student['is_approved'] == 1): ?>
-                                             <span class="rounded-lg py-2 px-3 text-green-600 bg-green-100">Approved</span>
+                                             <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100">Yes</span>
                                         <?php elseif($student['is_approved'] == 0): ?>
-                                            <span class="rounded-lg py-2 px-3 text-red-600 bg-red-100">Not Approved</span>
+                                            <span class="rounded-lg text-sm py-2 px-3 text-red-600 bg-red-100">No</span>
                                         <?php endif?>
                                     </td>
                                     <td><?= $student['date_of_birth'] ?></td>
@@ -71,7 +71,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Status</th>
+                                <th>Approved</th>
                                 <th>Date Of Birth</th>
                             </tr>
                         </tfoot>

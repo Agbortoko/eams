@@ -62,9 +62,8 @@ else {
                 
             } catch (\Exception $e) {
 
-               // redirect(baseUrl("admin/settings.php"), ["error" => "exceptionerror"]);
-                dump($e->getMessage());
-                exit;
+               redirect(baseUrl("admin/settings.php"), ["error" => "exceptionerror"]);
+               
             }
    
  
