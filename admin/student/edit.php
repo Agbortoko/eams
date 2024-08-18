@@ -38,26 +38,61 @@
 
                 <div class="grid grid-cols-1 gap-8 mb-8">
 
-                    <div class="min-h-[500px] p-10 bg-white shadow rounded-lg">
+                    <h2 class="text-2xl font-semibold">Modify User Account Details</h2>
+
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
 
                     <form action="<?= baseUrl('admin/action/update_student.php') ?>" method="POST" autocomplete="off">
 
                             <input type="hidden" name="id" value="<?= $student['id'] ?>">
 
-                            <!-- <div class="mb-3">
-                                <label for="title" class="block mb-3">Batch Title</label>
-                                <input type="text" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" value="" />
+                            <div class="mb-3">
+                                <label for="title" class="block mb-3">Email Address</label>
+                                <input type="email" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" value="" />
                             </div>
 
-                            <div class="mb-3">
-                                <label for="description" class="block mb-2">Description</label>
-                               <textarea name="description" class="w-full border border-slate-300 resize-none min-h-[300px] px-3 py-2 placeholder:italic" id="description" placeholder="Type the batch description"></textarea>
-                            </div> -->
 
-                            <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update Student</button>
+                            <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
 
                     </form>
 
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold">Modify Student Information</h2>
+
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                        <form action="<?= baseUrl('admin/action/update_student.php') ?>" method="POST" autocomplete="off">
+
+                                <input type="hidden" name="id" value="<?= $student['id'] ?>">
+
+                                <div class="mb-3">
+                                    <label for="title" class="block mb-3">Email Address</label>
+                                    <input type="text" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" value="" />
+                                </div>
+
+
+                                <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
+
+                        </form>
+                    </div>
+
+
+                    <h2 class="text-2xl font-semibold">Change Password</h2>
+
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                        <form action="<?= baseUrl('admin/action/update_student.php') ?>" method="POST" autocomplete="off">
+
+                            <input type="hidden" name="id" value="<?= $student['id'] ?>">
+
+                            <div class="mb-3">
+                                <label for="title" class="block mb-3">Email Address</label>
+                                <input type="text" name="title" id="title" class="border border-slate-300 rounded-lg px-3 py-2 w-full placeholder:italic " placeholder="Type the batch title" value="" />
+                            </div>
+
+
+                            <button class="py-2 px-3 bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 rounded-lg text-white">Update</button>
+
+                        </form>
                     </div>
 
                 </div>
