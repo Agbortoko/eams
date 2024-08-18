@@ -9,7 +9,7 @@
 
 <?php require_once __DIR__ . '/templates/navigation.php' ?>
 
-<main x-data="{ deleteModalOpen : false, studentID : 0}" class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">
+<main x-data="{ deleteModalOpen : false, studentID : 0, userID: 0}" class="flex min-h-screen w-full overflow-hidden mt-10 relative z-10">
 
     <?php require_once __DIR__ . '/templates/sidebar.php' ?>
 
@@ -80,7 +80,7 @@
 
                                             </a>
 
-                                            <button @click="deleteModalOpen=!deleteModalOpen; studentID = <?= $student['id'] ?>" class="bg-red-600 py-2 px-3 rounded-lg hover:bg-red-700 w-fit text-white flex items-center gap-2">
+                                            <button @click="deleteModalOpen=!deleteModalOpen; studentID = <?= $student['id'] ?>; userID = <?= $student['user_id'] ?>" class="bg-red-600 py-2 px-3 rounded-lg hover:bg-red-700 w-fit text-white flex items-center gap-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
                                                     <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
                                                 </svg>
@@ -127,20 +127,17 @@
             <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
         </svg>
 
-        <div class="mb-5 text-center">
+        <div class="mb-5">
             <h3 class="text-center text-2xl font-semibold mb-3">Delete Notice!</h3>
-
-            <p>
-                Are you sure you want to delete this item?
-            </p>
-
+            <p>Deleting this student will completely remove them from the system. Are you sure you want to delete?</p>
         </div>
 
         <div class="w-full flex items-center justify-end gap-2">
             <button @click="deleteModalOpen=false" class="rounded-lg py-2 px-3 w-fit bg-gray-600 text-white hover:bg-gray-700 block">Cancel</button>
 
             <form action="<?= baseUrl('admin/action/delete_student.php') ?>" class="block w-fit" method="POST">
-                <input type="hidden" name="id" :value="studentID" />
+                <input type="hidden" name="studentID" :value="studentID" />
+                <input type="hidden" name="userID" :value="userID" />
                 <button class="rounded-lg py-2 px-3 w-fit bg-red-600 text-white hover:bg-red-700" type="submit">Delete</button>
             </form>
         </div>
@@ -156,6 +153,8 @@
 <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
 <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
 <?= toast('error', 'settings_not_saved', "Settings Not Saved Successfully"); ?>
+<?= toast('success', 'student_deleted', "Student Deleted Successfully"); ?>
+<?= toast('error', 'student_not_deleted', "Student Not Deleted Successfully"); ?>
 <?= toast('error', 'exceptionerror', "Unexpected Error! Please try again"); ?>
 
 <?php require_once __DIR__ . '/templates/footer.php' ?>

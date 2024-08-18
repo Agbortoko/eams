@@ -115,13 +115,10 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
             </svg>
 
-            <div class="mb-5 text-center">
+            <div class="mb-5">
                 <h3 class="text-center text-2xl font-semibold mb-3">Delete Notice!</h3>
-
-                <p>
-                    Are you sure you want to delete this item?
-                </p>
-
+                <p>Are you sure you want to delete this batch?</p>
+                <p><strong>NB: </strong>  You cannot delete a batch with students!</p>
             </div>
 
             <div class="w-full flex items-center justify-end gap-2">
