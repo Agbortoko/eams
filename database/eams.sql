@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 18, 2024 at 08:16 PM
+-- Generation Time: Aug 19, 2024 at 12:30 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `user_id`, `first_name`, `last_name`, `created_at`) VALUES
-(1, 14, 'Main', 'Admin', '2024-08-17 19:33:30');
+(1, 14, 'John', 'Admin', '2024-08-17 19:33:30');
 
 -- --------------------------------------------------------
 
@@ -64,9 +64,12 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `admin_id`, `student_id`, `batch_id`, `note`, `is_present`, `marked_date`, `created_at`) VALUES
-(1, 1, 3, 1, 'I wasn gone', 0, '2024-08-18', '2024-08-18 18:09:07'),
-(2, 1, 1, 1, 'Presentosnad', 0, '2024-08-18', '2024-08-18 18:09:07'),
-(3, 1, 4, 2, 'Traveled for important business', 0, '2024-08-18', '2024-08-18 18:13:47');
+(1, 1, 3, 1, 'I wasn gone', 0, '2024-08-17', '2024-08-18 18:09:07'),
+(2, 1, 1, 1, 'Presentosnad', 0, '2024-08-17', '2024-08-18 18:09:07'),
+(3, 1, 4, 2, 'Traveled for important business', 0, '2024-08-17', '2024-08-18 18:13:47'),
+(4, 1, 3, 1, '', 1, '2024-08-18', '2024-08-18 18:19:09'),
+(5, 1, 1, 1, 'Is absent for a while! Writing concour', 0, '2024-08-18', '2024-08-18 18:19:09'),
+(6, 1, 4, 2, '', 1, '2024-08-18', '2024-08-18 18:19:32');
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,7 @@ CREATE TABLE `settings` (
 
 INSERT INTO `settings` (`id`, `name`, `value`) VALUES
 (1, 'site_name', 'Eschosys AMS'),
-(2, 'app_mode', 'development'),
+(2, 'app_mode', 'production'),
 (3, 'admin_email', 'info@eschosys.com'),
 (4, 'base_url', 'http://localhost/eams'),
 (5, 'admin_registration', '1');
@@ -139,7 +142,7 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`id`, `user_id`, `batch_id`, `first_name`, `last_name`, `school`, `department`, `date_of_birth`, `is_approved`, `created_at`) VALUES
 (1, 9, 1, 'Rabbit', 'Kum', 'School Zone', 'Sofware Engineering', '1976-09-11', 1, '2024-08-15 12:49:29'),
-(3, 12, 1, 'Carlus', 'Newman', 'English School', 'Commerce', '2024-08-21', 1, '2024-08-15 12:59:48'),
+(3, 12, 1, 'Karki', 'Newman', 'English School', 'Commerce', '2024-08-21', 1, '2024-08-15 12:59:48'),
 (4, 13, 2, 'Geneva', 'Something', 'School', 'Medecine', '2024-08-07', 1, '2024-08-15 18:41:15');
 
 -- --------------------------------------------------------
@@ -168,9 +171,9 @@ INSERT INTO `users` (`id`, `email`, `password`, `is_admin`, `email_verified_at`,
 (7, 'mink@gmail.com', '$2y$10$FmKcQF15b46fscRRI5lIaOHMtW1BcS7yPxcDyl0Mjo.UGtKl0QtZ6', 0, NULL, NULL, '2024-08-15 08:49:44'),
 (9, 'johnhan@email.com', '$2y$10$Inzpwb7.RaVVgLyyCvY94OGvuqG9h0cmz1u5DdgoSDddPqm5PUPne', 0, '2024-08-15 12:30:14', NULL, '2024-08-15 09:15:21'),
 (10, 'judeben@gmail.com', '$2y$10$3O2U8Epfx/JfpHc.76P8N.DCMJp3/9xG6Jl.uyZdzt3TzcU4pFCf.', 0, '2024-08-15 12:27:56', NULL, '2024-08-15 09:31:59'),
-(12, 'carlus@gmail.com', '$2y$10$aPViv.6NavKJxPRj5ZCUPekhhLcz4zQlFo0olvpM.fRz5LMXFT1FW', 0, '2024-08-18 15:05:39', NULL, '2024-08-15 09:36:46'),
+(12, 'carlus@gmail.com', '$2y$10$CZMYj39COgfc5gu8YpWFte24sg79YxBpEH2CqDCOSQbe5pipSizs.', 0, '2024-08-18 21:33:38', NULL, '2024-08-15 09:36:46'),
 (13, 'geneva@gmail.com', '$2y$10$683YLc3cykmZ48PJ4fNVcepjHggZXxd6MWZL/B6OnkmlwTefTJdOu', 0, '2024-08-15 18:40:57', NULL, '2024-08-15 18:40:44'),
-(14, 'admin@admin.com', '$2y$10$dEpoJMijvQoEQb0nHM5YVuvYbRQtFakOXmX/GSg5jDejcrkjFTcfi', 1, '2024-08-17 19:33:21', NULL, '2024-08-17 19:32:49');
+(14, 'admin@admin.com', '$2y$10$W0cpFq2P05JtuoRhZTXG4ep06EIAZAZxp4m1mpN4rcenKzUvo56je', 1, '2024-08-18 18:40:43', NULL, '2024-08-17 19:32:49');
 
 --
 -- Indexes for dumped tables
@@ -233,7 +236,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `batches`
