@@ -189,8 +189,8 @@
     <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'user_account_updated', "Student User account updated successfully"); ?>
     <?= toast('success', 'student_info_updated', "Student Information updated successfully"); ?>
-    <?= toast('error', 'user_account_not_updated', "Student User account not updated successfully"); ?>
     <?= toast('error', 'student_info_not_updated', "Student Information not updated successfully"); ?>
+    <?= toast('error', 'user_account_not_updated', "Student User account not updated successfully"); ?>
     <?= toast('success', 'password_reset_success', "Password updated successfully"); ?>
     <?= toast('error', 'password_reset_failed', "Password not updated successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>

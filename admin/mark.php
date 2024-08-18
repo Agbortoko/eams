@@ -141,6 +141,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
 
 
 
+<?= toast('success', 'attendance_marked', "Attendance Marked Sucessfully"); ?>
 <?= toast('success', 'batch_created', "Batch Created Sucessfully"); ?>
 <?= toast('success', 'batch_deleted', "Batch Deleted Sucessfully"); ?>
 <?= toast('error', 'batch_not_deleted', "Batch not deleted successfully"); ?>

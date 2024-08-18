@@ -27,10 +27,6 @@ else {
         }
         else {
    
-               // Escape all special characters
-               $email = mysqli_real_escape_string($connection, $email);
-
-
                if($newPassword !== $passwordConfirmation) {
                     redirect(baseUrl("admin/student/edit.php"), ["error" => "confirmpassworderror", "student_id" => $studentID]);
                 }else { 
