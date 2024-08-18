@@ -36,6 +36,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Number of Students</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -48,6 +49,19 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
                                     <tr>
                                         <td><?= strtoupper($batch['title']) ?></td>
                                         <td><?= empty($batch['description']) ? "No description" : substr($batch['description'], 0, 50) . "..." ?></td>
+                                        <td>
+                                            <?php  
+                                                $batchID = $batch['id'];
+                                                $query = "SELECT COUNT(*) AS total FROM students WHERE batch_id = $batchID";
+                                                $result = mysqli_query($connection, $query);
+
+                                                if(mysqli_num_rows($result) > 0) {
+                                                    $students = mysqli_fetch_assoc($result);
+                                                }
+                                             ?>
+
+                                             <?= $students['total'] ?? 0 ?>
+                                        </td>
                                         <td class="flex justify-center items-center gap-x-2">
 
                                             <a href="<?= baseUrl('admin/batch/batch_students.php?batch_id='.$batch['id']) ?>" class="btn btn-green w-fit text-white my-3 flex gap-2 items-center">
@@ -87,6 +101,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
                             <tr>
                                 <th>Title</th>
                                 <th>Description</th>
+                                <th>Number of Students</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>

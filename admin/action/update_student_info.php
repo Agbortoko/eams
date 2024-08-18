@@ -16,6 +16,7 @@ else {
      $school = $_POST['school'];
      $department = $_POST['department'];
      $dateOfBirth = $_POST['dateOfBirth'];
+     $batch = $_POST['batch'];
 
      // Invalid request if the id is not submitted
      if(empty($studentID)) {
@@ -24,7 +25,7 @@ else {
     else {
 
         // Check for empty fields
-        if(empty($firstName) || empty($lastName) || empty($school) || empty($department) || empty($dateOfBirth)) {
+        if(empty($firstName) || empty($lastName) || empty($school) || empty($department) || empty($dateOfBirth) || empty($batch)) {
            redirect(baseUrl("admin/student/edit.php"), ["error" => "emptyfield", "student_id" => $studentID]);
         }
         else {
@@ -41,7 +42,7 @@ else {
                try {
    
                    // Update Student Information
-                   $query = "UPDATE students SET first_name = '$firstName', last_name = '$lastName', school = '$school', department = '$department', date_of_birth = '$dateOfBirth' WHERE id = $studentID";
+                   $query = "UPDATE students SET first_name = '$firstName', last_name = '$lastName', school = '$school', department = '$department', date_of_birth = '$dateOfBirth', batch_id = $batch WHERE id = $studentID";
                    $result = mysqli_query($connection, $query);
            
                    if($result) {

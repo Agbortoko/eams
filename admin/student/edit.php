@@ -12,6 +12,7 @@
 <?php 
     $student = [];
     $user = [];
+    $batches = [];
 
 
     $id = $_GET['student_id'];
@@ -26,6 +27,14 @@
 
     if(mysqli_num_rows($userResult) == 1) {
         $user = mysqli_fetch_assoc($userResult);
+    }
+
+
+    $batchQuery = "SELECT * FROM batches";
+    $batchResult = mysqli_query($connection, $batchQuery);
+    
+    if(mysqli_num_rows($batchResult) > 0) {
+        $batches = mysqli_fetch_all($batchResult, MYSQLI_ASSOC);
     }
 ?>
 
@@ -111,7 +120,31 @@
 
                                 <div class="mb-3">
                                     <label for="dateOfBirth">Date Of Birth</label>
-                                    <input type="date" name="dateOfBirth" id="dateOfBirth" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic mb-5" value="<?= $student['date_of_birth'] ?>" />
+                                    <input type="date" name="dateOfBirth" id="dateOfBirth" class="w-full border border-slate-300 rounded-lg py-3 px-2 placeholder:italic" value="<?= $student['date_of_birth'] ?>" />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="studentBatch" class="block mb-3">Student Batch</label>
+                          
+                                    <select name="batch" id="studentBatch" class="bg-white border border-slate-300 rounded-lg py-3 px-2 w-full placeholder:italic">
+                                        <option disabled selected>Select a Batch</option>
+                                        <?php if(count($batches) > 0 && isset($batches)): ?>
+                                              
+                                              <?php foreach($batches as $batch): ?>
+
+                                                <?php if($student['batch_id'] == $batch['id']): ?>
+                                                    <option value="<?= $batch['id'] ?>" selected><?= strtoupper($batch['title']) ?></option>
+                                                <?php else: ?>
+                                                    <option value="<?= $batch['id'] ?>"><?= strtoupper($batch['title']) ?></option>
+                                                <?php endif ?>  
+
+                                              <?php endforeach ?>
+                                      
+                                        
+                                        <?php endif ?>
+                                       
+                                    </select>
+                               
                                 </div>
 
 

@@ -141,6 +141,9 @@
             </div>
         </section>
 
+
+        
+
     </main>
     <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'admin_details_saved', "Administrators Details Saved Successfully"); ?>

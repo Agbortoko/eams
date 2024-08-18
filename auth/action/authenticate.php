@@ -49,15 +49,54 @@ else {
                             $_SESSION['loginID'] = $user['id'];
                             // Check role and redirect to dashboard
 
+                            
                             if($user['is_admin'] == 0) {
 
+                                // Save Student Full Names in Session
+                                $student = [];
+                                $fullName = "";
+
+                                $userID = $_SESSION['loginID'];
+                                $query = "SELECT * FROM students WHERE user_id = $userID";
+                                $result = mysqli_query($connection, $query);
+
+                                if(mysqli_num_rows($result) == 1) {
+                                    $student = mysqli_fetch_assoc($result);
+                                }
+
+                                $fullName = $student['first_name'] . " " . $student['last_name'];
+                                
+
                                 $_SESSION['role'] = "student";
+                                $_SESSION['fullName'] = ucwords($fullName);
+
                                 redirect(baseUrl("student"), ["success" => "loginsuccess"]);
                             }
                             elseif($user['is_admin'] == 1) {
 
+                                // Save Admin Full Names in Session
+                                $admin = [];
+                                $adminFullName = "";
+
+                                $userID = $_SESSION['loginID'];
+                                $adminQuery = "SELECT * FROM admins WHERE user_id = $userID";
+                                $adminResult = mysqli_query($connection, $adminQuery);
+
+                                if(mysqli_num_rows($adminResult) == 1) {
+                                    $admin = mysqli_fetch_assoc($adminResult);
+                                }
+
+                                $adminFullName = $admin['first_name'] . " " . $admin['last_name'];
+
+                                
                                 $_SESSION['role'] = "admin";
+                                $_SESSION['fullName'] = ucwords($adminFullName);
+
                                 redirect(baseUrl("admin"), ["success" => "loginsuccess"]);
+                            }
+
+                            else{
+                                redirect(baseUrl("auth/login.php"), ["error" => "invalidrequest"]);
                             }
 
                         }
