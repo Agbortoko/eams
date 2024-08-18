@@ -38,6 +38,7 @@
     </main>
 
     <?= toast('success', 'settings_saved', "Settings Saved Successfully"); ?>
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
     <?= toast('error', 'settings_not_saved', "Settings Not Saved Successfully"); ?>

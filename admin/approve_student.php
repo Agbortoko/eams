@@ -81,7 +81,7 @@
         </section>
 
     </main>
-
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'settings_saved', "Settings Saved Successfully"); ?>
     <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>

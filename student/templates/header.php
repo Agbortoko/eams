@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= siteName() ?> | Dashboard</title>
+    <title><?= siteName() ?> | <?= $pageTitle ?? "Dashboard" ?></title>
     <link rel="shortcut icon" href="<?= resourceUrl("/images/favicon.png") ?>" type="image/x-icon">
 
     <?php require_once basePath('includes/vite.php'); ?>

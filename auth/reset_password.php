@@ -40,6 +40,7 @@
 
     <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('error', 'unexpectederror', "Unexpected Error!"); ?>
+    <?= toast('error', 'emptyfield', "All fields are required!"); ?>
     <?= toast('error', 'confirmpassworderror', "Password does not match the Password Confirm field"); ?>
 
 <?php require_once __DIR__ . "/../templates/footer.php"; ?> 

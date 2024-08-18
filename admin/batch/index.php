@@ -27,9 +27,9 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
             </div>
 
 
-            <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
+            <div class="grid grid-cols-1 gap-8 mb-8">
 
-                <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary">
 
                     <table id="dTable" class="display dTable" style="width:100%">
                         <thead>

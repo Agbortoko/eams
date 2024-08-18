@@ -142,7 +142,7 @@
         </section>
 
     </main>
-
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'admin_details_saved', "Administrators Details Saved Successfully"); ?>
     <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
 

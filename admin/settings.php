@@ -20,9 +20,9 @@
                 </div>
 
 
-                <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
+                <div class="grid grid-cols-1 gap-8 mb-8">
 
-                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary">
 
                             <form action="<?= baseUrl('admin/action/save_settings.php') ?>" method="POST" class="" autocomplete="off">
 
@@ -88,9 +88,10 @@
         </section>
 
     </main>
-
+    
     <?= toast('success', 'settings_saved', "Settings Saved Successfully"); ?>
     <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
     <?= toast('error', 'settings_not_saved', "Settings Not Saved Successfully"); ?>
     <?= toast('error', 'exceptionerror', "Unexpected Error! Please try again"); ?>

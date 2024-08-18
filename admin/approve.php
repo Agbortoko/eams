@@ -28,9 +28,9 @@
                 </div>
 
 
-                <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
+                <div class="grid grid-cols-1 gap-8 mb-8">
 
-                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary">
 
                     <table id="dTable" class="dTable display" style="width:100%">
                         <thead>
@@ -38,7 +38,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Approved</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -53,10 +53,8 @@
                                     <td><?= $student['department'] ?></td>
                                     <td><?= $student['school'] ?></td>
                                     <td>
-                                        <?php if($student['is_approved'] == 1): ?>
-                                             <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100 border border-green-600">Yes</span>
-                                        <?php elseif($student['is_approved'] == 0): ?>
-                                            <span class="rounded-lg text-sm py-2 px-3 text-red-600 bg-red-100 border border-red-600">No</span>
+                                        <?php if($student['is_approved'] == 0): ?>
+                                            <span class="rounded-lg text-sm py-2 px-3 text-orange-600 bg-orange-100 border border-orange-600">Pending</span>
                                         <?php endif?>
                                     </td>
                                     <td>
@@ -81,7 +79,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Approved</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -97,7 +95,8 @@
         </section>
 
     </main>
-
+    
+    <?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
     <?= toast('success', 'settings_saved', "Settings Saved Successfully"); ?>
     <?= toast('success', 'student_approved', "Student Approved Successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>

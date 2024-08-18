@@ -2,7 +2,10 @@
 <?php require_once __DIR__ . '/../templates/header.php' ?>
 
 <?php if(!isset($_GET['batch_id'])): ?>
-    <?php http_response_code(404); ?>
+    <?php 
+        http_response_code(404); 
+        redirect(baseUrl("admin/batch/index.php", ["error" => "invalidrequest"]));
+    ?>
 <?php else: ?>
 
 <?php 

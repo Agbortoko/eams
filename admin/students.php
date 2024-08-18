@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/templates/header.php' ?>
 
 <?php
-    $query = "SELECT * FROM students";
+    $query = "SELECT * FROM students WHERE is_approved = 1 ORDER BY batch_id ASC";
     $result = mysqli_query($connection, $query);
     $students = mysqli_fetch_all($result, MYSQLI_ASSOC);;
 ?>
@@ -27,9 +27,9 @@
             </div>
 
 
-            <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
+            <div class="grid grid-cols-1 gap-8 mb-8">
 
-                <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary">
 
                     <table id="dTable" class="display dTable" style="width:100%">
                         <thead>
@@ -37,7 +37,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Approved</th>
+                                <th>Batch</th>
                                 <th>Date Of Birth</th>
                                 <th>Action</th>
                             </tr>
@@ -53,10 +53,21 @@
                                     <td><?= $student['department'] ?></td>
                                     <td><?= $student['school'] ?></td>
                                     <td>
-                                        <?php if($student['is_approved'] == 1): ?>
-                                             <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100 border border-green-600">Yes</span>
-                                        <?php elseif($student['is_approved'] == 0): ?>
-                                            <span class="rounded-lg text-sm py-2 px-3 text-red-600 bg-red-100 border border-red-600">No</span>
+                                        <?php if($student['batch_id'] !== 0): ?>
+
+                                            <?php 
+                                                $batch = [];
+                                                $studentBatch = $student['batch_id'];
+                                                $batchQuery = "SELECT * FROM batches WHERE id = $studentBatch";
+                                                $batchResult = mysqli_query($connection, $batchQuery);
+
+                                                if(mysqli_num_rows($batchResult) == 1) {
+                                                    $batch = mysqli_fetch_assoc($batchResult);
+                                                }
+                                            ?>
+
+                                            <?= strtoupper($batch['title']) ?>
+                                       
                                         <?php endif?>
                                     </td>
                                     <td><?= $student['date_of_birth'] ?></td>
@@ -87,7 +98,7 @@
                                 <th>Full Names</th>
                                 <th>Department</th>
                                 <th>School</th>
-                                <th>Approved</th>
+                                <th>Batch</th>
                                 <th>Date Of Birth</th>
                                 <th>Action</th>
                             </tr>
@@ -141,6 +152,7 @@
 </main>
 
 <?= toast('success', 'settings_saved', "Settings Saved Successfully"); ?>
+<?= toast('error', 'invalidrequest', "Invalid Request!"); ?>
 <?= toast('success', 'loginsuccess', "Login Successfully"); ?>
 <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
 <?= toast('error', 'settings_not_saved', "Settings Not Saved Successfully"); ?>
