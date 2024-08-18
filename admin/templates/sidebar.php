@@ -42,7 +42,7 @@
         </a>
     </li>
 
-    <li class="group rounded-lg group-[.active] mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/mark.php") ? "sidebar_item-active" : "" ?>">
+    <li class="group rounded-lg group-[.active] mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/mark.php") || strpos($hayStack, "admin/mark_batch_students.php") ? "sidebar_item-active" : "" ?>">
         <a href="<?= baseUrl('admin/mark.php') ?>" class="flex items-center gap-3 text-white text-lg py-2 px-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 group-[.active] fill-black dark:fill-white" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8"/>

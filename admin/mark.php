@@ -18,7 +18,6 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
             <div class="flex items-center justify-between mb-8">
        
                 <h1 class="text-4xl font-semibold">Mark Attendance</h1>
-        
 
                 <div>
                     <a href="<?= baseUrl('admin') ?>" class="font-semibold text-primary text-xl cursor-pointer hover:underline"> Home </a> / <span class="text-xl"> Mark Attendance</span>
