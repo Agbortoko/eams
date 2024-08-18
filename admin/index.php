@@ -87,8 +87,6 @@
                 </div>
 
 
-            
-
                 <div class="w-full min-h-[500px] border-b-4 border-b-primary bg-white shadow rounded-lg py-8 px-8 overflow-x-auto">
                     
                     <div class="flex items-center gap-4 mb-8">
