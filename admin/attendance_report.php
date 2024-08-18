@@ -1,10 +1,50 @@
 <?php $pageTitle = "Students"; ?>
 <?php require_once __DIR__ . '/templates/header.php' ?>
 
-<?php
-    $query = "SELECT * FROM students WHERE is_approved = 1 ORDER BY batch_id ASC";
+<?php if((!isset($_GET['date']) || $_GET['date'] == '') || !isset($_GET['batch'])): ?>
+
+    <?php 
+         http_response_code(404);
+         redirect(baseUrl('admin/reports.php', ['error' => "emptyfield"]));
+    ?>
+
+<?php else: ?>
+
+<?php   
+
+    $attendances = [];
+    $students = [];
+    $batch = [];
+
+    $date = $_GET['date'];
+    $batchID = $_GET['batch'];
+
+    // Get Attendances for Batch That match the date
+    $query = "SELECT * FROM attendance WHERE batch_id = $batchID AND marked_date = '$date'";
     $result = mysqli_query($connection, $query);
-    $students = mysqli_fetch_all($result, MYSQLI_ASSOC);;
+    
+    if(mysqli_num_rows($result) > 0) {
+        $attendances = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
+
+    // Get students in batch
+    $sQuery = "SELECT * FROM students WHERE batch_id = $batchID";
+    $sResult = mysqli_query($connection, $sQuery);
+
+    if(mysqli_num_rows($sResult) > 0) {
+        $students = mysqli_fetch_all($sResult, MYSQLI_ASSOC);
+    }
+
+    // Get batch
+    $batchQuery = "SELECT * FROM batches WHERE id = $batchID";
+    $batchResult = mysqli_query($connection, $batchQuery);
+    
+    if(mysqli_num_rows($batchResult)) {
+        $batch = mysqli_fetch_assoc($batchResult);
+    }
+
+    
 ?>
 
 
@@ -36,72 +76,55 @@
                         <thead>
                             <tr>
                                 <th>Full Names</th>
-                                <th>Department</th>
-                                <th>School</th>
                                 <th>Batch</th>
-                                <th>Date Of Birth</th>
-                                <th>Action</th>
+                                <th>Status</th>
+                                <th>Note</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                           <?php if(isset($students) && count($students) > 0): ?>
+                        <?php if(isset($attendances) && count($attendances) > 0): ?>
+                            
+                                <?php if(isset($students) && count($students) > 0): ?>
 
-                            <?php foreach($students as $student): ?>
-                                
-                                <tr>
-                                    <td><?= $student["first_name"] . " " . $student['last_name'] ?></td>
-                                    <td><?= $student['department'] ?></td>
-                                    <td><?= $student['school'] ?></td>
-                                    <td>
-                                        <?php if($student['batch_id'] !== 0): ?>
+                                    <?php foreach($attendances as $attendance): ?>
 
-                                            <?php 
-                                                $batch = [];
-                                                $studentBatch = $student['batch_id'];
-                                                $batchQuery = "SELECT * FROM batches WHERE id = $studentBatch";
-                                                $batchResult = mysqli_query($connection, $batchQuery);
+                                        <?php foreach($students as $student): ?>
 
-                                                if(mysqli_num_rows($batchResult) == 1) {
-                                                    $batch = mysqli_fetch_assoc($batchResult);
-                                                }
-                                            ?>
+                                            <?php if($student['id'] == $attendance['student_id'] && $student['batch_id'] == $attendance['batch_id']): ?>
 
-                                            <?= strtoupper($batch['title']) ?>
-                                       
-                                        <?php endif?>
-                                    </td>
-                                    <td><?= $student['date_of_birth'] ?></td>
-                                    <td class="flex justify-center items-center gap-x-2">
-                                            <a href='<?= baseUrl("admin/student/edit.php?student_id=" . $student['id']) ?>' class="btn btn-blue rounded-lg w-fit text-white my-3 block">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
-                                                </svg>
+                                                <tr>
+                                                    <td><?= $student["first_name"] . " " . $student['last_name'] ?></td>
+                                                
+                                                    <td><?= strtoupper($batch['title']) ?></td>
+                                                    <td>
+                                                        <?php if($attendance['is_present'] == 0): ?>
+                                                            <span class="rounded-lg text-sm py-2 px-3 text-orange-600 bg-orange-100 border border-orange-600">Absent</span>
+                                                        <?php elseif($attendance['is_present'] == 1): ?>
+                                                            <span class="rounded-lg text-sm py-2 px-3 text-green-600 bg-green-100 border border-green-600">Present</span>
+                                                        <?php endif?>
 
-                                            </a>
+                                                        <td><?= $attendance['note'] ?></td>
+                                                    </td>
+                                                </tr>
 
-                                            <button @click="deleteModalOpen=!deleteModalOpen; studentID = <?= $student['id'] ?>; userID = <?= $student['user_id'] ?>" class="bg-red-600 py-2 px-3 rounded-lg hover:bg-red-700 w-fit text-white flex items-center gap-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-6" viewBox="0 0 16 16">
-                                                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5" />
-                                                </svg>
-                                            </button>
-                                    </td>
-                                </tr>
+                                            <?php endif ?>
+                                            
+                                        <?php endforeach ?>
 
-                            <?php endforeach ?>
+                                    <?php endforeach ?>
 
-                          <?php endif ?>
+                                <?php endif ?>
+
+                        <?php endif ?>
                            
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Full Names</th>
-                                <th>Department</th>
-                                <th>School</th>
                                 <th>Batch</th>
-                                <th>Date Of Birth</th>
-                                <th>Action</th>
+                                <th>Status</th>
+                                <th>Note</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -159,3 +182,5 @@
 <?= toast('error', 'exceptionerror', "Unexpected Error! Please try again"); ?>
 
 <?php require_once __DIR__ . '/templates/footer.php' ?>
+
+<?php endif ?>

@@ -64,7 +64,7 @@
         </a>
     </li>
 
-    <li class="group rounded-lg mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/reports.php") ? "sidebar_item-active" : "" ?>">
+    <li class="group rounded-lg mb-5 hover:bg-neutral-300 dark:hover:bg-gray-600 <?= strpos($hayStack, "admin/reports.php") || strpos($hayStack, "admin/attendance_report.php") ? "sidebar_item-active" : "" ?>">
         <a href="<?= baseUrl('admin/reports.php') ?>" class="flex items-center gap-3 text-white text-lg py-2 px-4 ">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-[.active] fill-black dark:fill-white" viewBox="0 0 16 16">
             <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/>

@@ -1,4 +1,4 @@
-
+<?php $pageTitle = "Batch Students"; ?>
 <?php require_once __DIR__ . '/../templates/header.php' ?>
 
 <?php if(!isset($_GET['batch_id'])): ?>

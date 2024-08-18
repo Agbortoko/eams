@@ -1,3 +1,4 @@
+<?php $pageTitle = "All Batches"; ?>
 <?php require_once __DIR__ . '/../templates/header.php' ?>
 
 <?php

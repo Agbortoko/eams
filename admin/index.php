@@ -1,4 +1,4 @@
-
+<?php $pageTitle = "Analytics"; ?>
 <?php require_once __DIR__ . '/templates/header.php' ?>
 <?php
     $studentsQuery = "SELECT * FROM students";
