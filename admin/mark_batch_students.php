@@ -55,7 +55,7 @@
 
                 <div class="grid grid-cols-1 gap-8 mb-8 border-b-4 border-b-primary">
 
-                    <div class="min-h-fit p-10 bg-white shadow rounded-lg">
+                    <div class="min-h-fit p-10 bg-white shadow rounded-lg overflow-x-auto">
 
                     <h3 class="text-xl mb-10">Date: <span class="py-2 px-3 bg-primary rounded-lg text-white"><?= date('l dS F Y'); ?></span></h3>
 

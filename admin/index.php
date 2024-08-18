@@ -89,14 +89,14 @@
 
             
 
-                <div class="w-full min-h-[500px] border-b-4 border-b-primary bg-white shadow rounded-lg py-8 px-8">
+                <div class="w-full min-h-[500px] border-b-4 border-b-primary bg-white shadow rounded-lg py-8 px-8 overflow-x-auto">
                     
                     <div class="flex items-center gap-4 mb-8">
                         <h2 class="text-3xl font-semibold">Recently Registered Students</h2>
                         <a href="<?= baseUrl('admin/students.php') ?>" class="bg-primary hover:bg-primary-dark transition-all ease-in-out delay-75 py-3 px-2 w-fit rounded-lg text-xl text-white">See More</a>
                    </div>
 
-                    <table id="dTable" class="display dTable" style="width:100%">
+                    <table id="dTable" class="display dTable w-full">
                         <thead>
                             <tr>
                                 <th>Full Names</th>

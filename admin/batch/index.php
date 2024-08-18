@@ -30,7 +30,7 @@ $batches = mysqli_fetch_all($result, MYSQLI_ASSOC);;
 
             <div class="grid grid-cols-1 gap-8 mb-8">
 
-                <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary">
+                <div class="min-h-fit p-10 bg-white shadow rounded-lg border-b-4 border-b-primary overflow-x-auto">
 
                     <table id="dTable" class="display dTable" style="width:100%">
                         <thead>
