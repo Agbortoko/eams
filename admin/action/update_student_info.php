@@ -40,16 +40,43 @@ else {
                
                // Catch exceptions
                try {
-   
-                   // Update Student Information
-                   $query = "UPDATE students SET first_name = '$firstName', last_name = '$lastName', school = '$school', department = '$department', date_of_birth = '$dateOfBirth', batch_id = $batch WHERE id = $studentID";
-                   $result = mysqli_query($connection, $query);
-           
-                   if($result) {
-                       redirect(baseUrl("admin/student/edit.php"), ["success" => "student_info_updated", "student_id" => $studentID]);
-                   }else {
-                       redirect(baseUrl("admin/student/edit.php"), ["error" => "student_info_not_updated", "student_id" => $studentID]);
+
+                   $student = [];
+                   // Check if already existing batch already has an attendance
+                   // A student with existing attendance batch cannot be modified
+                   $sQuery = "SELECT  * FROM students WHERE id = $studentID";
+                   $sResult = mysqli_query($connection, $sQuery);
+
+                   if(mysqli_num_rows($sResult) == 1) {
+                        $student = mysqli_fetch_assoc($sResult);
                    }
+                   $studentBatchID = $student['batch_id'];
+
+                   $aQuery = "SELECT * FROM attendance WHERE student_id = $studentID AND batch_id = $studentBatchID";
+                   $aResult = mysqli_query($connection, $aQuery);
+
+                   // If there is an existing record in the attendance database and
+                   // the admin tries to change the batch to a different batch
+                   if(mysqli_num_rows($aResult) > 0 && $studentBatchID !== $batch) {
+
+                    redirect(baseUrl("admin/student/edit.php"), ["error" => "student_attendance_exists", "student_id" => $studentID]);
+
+                   }else {
+
+
+                       // Update Student Information
+                       $query = "UPDATE students SET first_name = '$firstName', last_name = '$lastName', school = '$school', department = '$department', date_of_birth = '$dateOfBirth', batch_id = $batch WHERE id = $studentID";
+                       $result = mysqli_query($connection, $query);
+               
+                       if($result) {
+                           redirect(baseUrl("admin/student/edit.php"), ["success" => "student_info_updated", "student_id" => $studentID]);
+                       }else {
+                           redirect(baseUrl("admin/student/edit.php"), ["error" => "student_info_not_updated", "student_id" => $studentID]);
+                       }
+
+                   }
+
+   
    
                    
                } catch (\Exception $e) {

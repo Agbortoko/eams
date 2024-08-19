@@ -191,6 +191,7 @@
     <?= toast('success', 'student_info_updated', "Student Information updated successfully"); ?>
     <?= toast('error', 'student_info_not_updated', "Student Information not updated successfully"); ?>
     <?= toast('error', 'user_account_not_updated', "Student User account not updated successfully"); ?>
+    <?= toast('error', 'student_attendance_exists', "You already marked an attendance! Cannot modify student BATCH"); ?>
     <?= toast('success', 'password_reset_success', "Password updated successfully"); ?>
     <?= toast('error', 'password_reset_failed', "Password not updated successfully"); ?>
     <?= toast('error', 'emptyfield', "One or More fields are empty!"); ?>
