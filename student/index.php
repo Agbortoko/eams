@@ -113,7 +113,7 @@
 
                     <div class="flex flex-col items-center justify-center">
                         <p class="text-lg font-semibold mb-4 bg-primary py-1 px-2 rounded-lg">Your Batch</p>
-                        <p class="text-2xl font-semibold text-wrap"><?= strtoupper($batch['title']) ?? "" ?></p>
+                        <p class="text-2xl font-semibold text-wrap"><?= isset($batch['title']) ? strtoupper($batch['title']) : "NO BATCH" ?></p>
                     </div>
 
                 </div>

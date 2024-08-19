@@ -1,26 +1,25 @@
 <?php
 
-require_once __DIR__ ."/../config/settings.php";
+require_once __DIR__ . "/../config/settings.php";
 require_once __DIR__ . "/../config/mail.php";
 
 
-if(!function_exists("siteName")) 
-{ 
-    function siteName() {
+if (!function_exists("siteName")) {
+    function siteName()
+    {
         return getConfig('site_name') ?? null;
     }
 }
 
 
-if(!function_exists("baseUrl")) 
-{ 
-    function baseUrl(string $path = null, array $query = null) {
-        
-        if($path !== null && $query !== null) {
+if (!function_exists("baseUrl")) {
+    function baseUrl(string $path = null, array $query = null)
+    {
+
+        if ($path !== null && $query !== null) {
             $build = http_build_query($query);
             return getConfig('base_url') . "/" . $path . "?" . $build;
-        }
-        elseif($path !== null) {
+        } elseif ($path !== null) {
             return getConfig('base_url') . "/" . $path;
         }
 
@@ -29,41 +28,41 @@ if(!function_exists("baseUrl"))
 }
 
 
-if(!function_exists("basePath")) 
-{ 
-    function basePath(string $path = null) {
-        if($path !== null) {
-            return getConfig('base_path') . "\\" . $path;
+if (!function_exists("basePath")) {
+    function basePath(string $path = null)
+    {
+        if ($path !== null) {
+            return getConfig('base_path') . "/" . $path;
         }
         return getConfig('base_path');
     }
 }
 
 
-if(!function_exists("resourceUrl")) 
-{ 
-    function resourceUrl(string $path = null) {
-        if($path !== null) {
+if (!function_exists("resourceUrl")) {
+    function resourceUrl(string $path = null)
+    {
+        if ($path !== null) {
             return baseUrl('resources' .  "/" . $path);
         }
         return baseUrl('resources');
     }
 }
 
-if(!function_exists("isDevelopment")) 
-{ 
-    function isDevelopment() {
-        if(strtolower(getConfig('app_mode')) == "development") {
+if (!function_exists("isDevelopment")) {
+    function isDevelopment()
+    {
+        if (strtolower(getConfig('app_mode')) == "development") {
             return true;
         }
         return false;
     }
 }
 
-if(!function_exists("isProduction")) 
-{ 
-    function isProduction() {
-        if(strtolower(getConfig('app_mode')) == "production") {
+if (!function_exists("isProduction")) {
+    function isProduction()
+    {
+        if (strtolower(getConfig('app_mode')) == "production") {
             return true;
         }
         return false;
@@ -71,33 +70,32 @@ if(!function_exists("isProduction"))
 }
 
 
-if(!function_exists("vite"))
-{
-    function vite(string $path) {
-            if(file_exists(basePath("resources/dist/.vite/manifest.json"))) {
+if (!function_exists("vite")) {
+    function vite(string $path)
+    {
+        if (file_exists(basePath("resources/dist/.vite/manifest.json"))) {
 
-                $manifestPath = basePath("resources/dist/.vite/manifest.json");
+            $manifestPath = basePath("resources/dist/.vite/manifest.json");
 
-                $manifest = json_decode(file_get_contents($manifestPath), true);
-                if (isset($manifest["resources/js/app.js"])) {
-                    if(strtolower($path) == "js") {
-                        return "dist/" . $manifest["resources/js/app.js"]['file'];
-                    }
-                    elseif(strtolower($path) == "css") {
-                        return "dist/". $manifest["resources/js/app.js"]['css'][0];
-                    }
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+            if (isset($manifest["resources/js/app.js"])) {
+                if (strtolower($path) == "js") {
+                    return "dist/" . $manifest["resources/js/app.js"]['file'];
+                } elseif (strtolower($path) == "css") {
+                    return "dist/" . $manifest["resources/js/app.js"]['css'][0];
                 }
-
-            }else {
-                return null;
             }
+        } else {
+            return null;
+        }
     }
 }
 
 
-if(!function_exists("redirect")) {
-    function redirect(string $to, array $query = null) {
-        if($query !== null) {
+if (!function_exists("redirect")) {
+    function redirect(string $to, array $query = null)
+    {
+        if ($query !== null) {
             $httpQuery = http_build_query($query);
             return header("Location: $to?$httpQuery");
         }
@@ -106,8 +104,9 @@ if(!function_exists("redirect")) {
 }
 
 
-if(!function_exists("sendMail")) {
-    function sendMail($to, $subject, $message) {
+if (!function_exists("sendMail")) {
+    function sendMail($to, $subject, $message)
+    {
         if (function_exists('usePHPMailer')) {
             return usePHPMailer($to, $subject, $message);
         }
@@ -115,9 +114,10 @@ if(!function_exists("sendMail")) {
 }
 
 
-if(!function_exists("mailTemplate")) {
-    function mailTemplate($title, $greeting, $body) {
-    
+if (!function_exists("mailTemplate")) {
+    function mailTemplate($title, $greeting, $body)
+    {
+
         $template =   <<<MESSAGE
                <!DOCTYPE html>
                <html lang="en">
@@ -191,26 +191,28 @@ if(!function_exists("mailTemplate")) {
                </body>
                </html>
                MESSAGE;
-       
-       
-           return $template;
-       }
 
 
-    if(!function_exists('toast')) {
+        return $template;
+    }
+}
 
-        /**
-         * Show Toastr Notifications
-         *
-         * @param string $key
-         * @param string $value
-         * @param string $message
-         * @return null|string
-         */
-        function toast(string $key, string $value, string $message) {
 
-           if(isset($_GET[$key]) && $_GET[$key] == $value){
-              $notice = <<<NOTICE
+if (!function_exists('toast')) {
+
+    /**
+     * Show Toastr Notifications
+     *
+     * @param string $key
+     * @param string $value
+     * @param string $message
+     * @return null|string
+     */
+    function toast(string $key, string $value, string $message)
+    {
+
+        if (isset($_GET[$key]) && $_GET[$key] == $value) {
+            $notice = <<<NOTICE
                     <script>
                         document.addEventListener('DOMContentLoaded', () => {
                             toastr.$key("$message");
@@ -218,21 +220,18 @@ if(!function_exists("mailTemplate")) {
                     </script>
               NOTICE;
 
-              return $notice;
-           }
-
-           return null;
-              
-        }
-    }
-
-
-    if(!function_exists("generateToken")) {
-
-        function generateToken() {
-            return strtoupper(uniqid().time());
+            return $notice;
         }
 
+        return null;
     }
-       
+}
+
+
+if (!function_exists("generateToken")) {
+
+    function generateToken()
+    {
+        return strtoupper(uniqid() . time());
+    }
 }
